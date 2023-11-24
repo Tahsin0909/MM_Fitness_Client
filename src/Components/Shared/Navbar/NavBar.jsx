@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import NavOptions from "./NavOptions";
+import Button from "../Button/Button";
 
 const NavBar = () => {
     return (
@@ -25,7 +27,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">LogIn</a>
+                    <Link> <Button text={"Log In"}></Button> </Link>
                 </div>
             </div>
         </div>

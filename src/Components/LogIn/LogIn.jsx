@@ -1,12 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+// import { useLocation, useNavigate } from "react-router-dom";
 
 
 const LogIn = () => {
     // Navigate After LOgIn
-    const location = useLocation()
-    const navigate = useNavigate()
+    // const location = useLocation()
+    // const navigate = useNavigate()
     const { register, handleSubmit,reset} = useForm();
     const [passwordError, setPasswordError] = useState('')
 
@@ -67,6 +69,7 @@ const LogIn = () => {
                                     <span className="label-text text-red-600 font-bold">{passwordError}</span>
                                     </label>
                                 </div>
+                                <p className="text-white">Dont't have an account? <Link className="hover:underline " to={'/signUp'}>Sign Up</Link> </p>
                                 <div className="mt-6 ">
                                     <input className="btn Shared_Color w-full" type="submit" value="Log In" />
                                 </div>

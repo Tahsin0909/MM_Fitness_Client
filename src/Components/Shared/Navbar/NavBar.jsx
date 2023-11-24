@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import NavOptions from "./NavOptions";
 import Button from "../Button/Button";
+import { useContext } from "react";
+import { AuthContext } from "../../ContextApi/ContextApi";
 
 const NavBar = () => {
+    const { AuthUser } = useContext(AuthContext)
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">
             <div className="navbar ">
@@ -27,7 +30,14 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/logIn'}> <Button text={"Log In"}></Button> </Link>
+                    {
+                        AuthUser ? <div className="flex items-center gap-4">
+                            <Button text={"Log Out"}></Button>
+                            <img className="md:w-12 w-10 rounded-full" src={AuthUser?.photoURL} alt="" />
+                        </div>
+                            :
+                            <Link to={'/logIn'}> <Button text={"Log In"}></Button> </Link>
+                    }
                 </div>
             </div>
         </div>

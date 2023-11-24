@@ -5,3 +5,28 @@
 .Shared_Color {
     background-color: #c91b1b;
 }
+.shared_Btn{
+    border: 2px solid red;
+    padding: 10px;
+    color: white;
+    background-color: #c91b1b;
+}
+.shared_text_color{
+    color: #c91b1b;
+}
+
+@media screen and (max-width: 768px) {
+    .shared_Btn {
+        /* Adjust styles for screens with a maximum width of 768px */
+        padding: 8px;
+        /* Add more styles here as needed for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .shared_Btn {
+        /* Adjust styles for screens with a maximum width of 480px */
+        padding: 6px;
+        /* Add more styles here as needed for even smaller screens */
+    }
+}

@@ -1,8 +1,9 @@
+import Banner from "../../Components/Home Page/Banner/Banner";
 
 const OutLet = () => {
     return (
         <div>
-            <p>Outlet</p>
+            <Banner/>
         </div>
     );
 };

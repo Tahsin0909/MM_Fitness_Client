@@ -4,8 +4,8 @@ import Button from "../Button/Button";
 
 const NavBar = () => {
     return (
-        <div className="relative w-full z-50">
-            <div className="navbar bg-transparent">
+        <div className="relative w-full z-50 bg-transparent lg:px-6 ">
+            <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -27,7 +27,7 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link> <Button text={"Log In"}></Button> </Link>
+                    <Link to={'/logIn'}> <Button text={"Log In"}></Button> </Link>
                 </div>
             </div>
         </div>

@@ -5,7 +5,7 @@ import Footer from "../../Components/Shared/Footer/Footer";
 const Home = () => {
     return (
         <div>
-            <div className="lg:mx-6">
+            <div className="">
                 <NavBar></NavBar>
             </div>
             <div className="">

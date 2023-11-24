@@ -2,7 +2,7 @@ import Banner from "../../Components/Home Page/Banner/Banner";
 
 const OutLet = () => {
     return (
-        <div>
+        <div className="">
             <Banner/>
         </div>
     );

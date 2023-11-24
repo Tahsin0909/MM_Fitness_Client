@@ -1,11 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
+import { AuthContext } from "../ContextApi/ContextApi";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
+    const {createUser} = useContext(AuthContext)
     // Navigate After LOgIn
     // const location = useLocation()
     // const navigate = useNavigate()
@@ -37,6 +40,7 @@ const SignUp = () => {
                 if (SpecialRegX.test(data.password)) {
                     setPasswordError('')
                     console.log(User);
+
                     reset()
                 }
                 else {
@@ -100,6 +104,10 @@ const SignUp = () => {
                                     <input className="btn Shared_Color w-full" type="submit" value="Register" />
                                 </div>
                             </form>
+                            {/* social sign up */}
+                            <div>
+                                <SocialLogIn text={'Or Sign up With'} />
+                            </div>
                         </div>
                     </div>
                 </div>

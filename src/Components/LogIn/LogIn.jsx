@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -9,7 +10,7 @@ const LogIn = () => {
     // Navigate After LOgIn
     // const location = useLocation()
     // const navigate = useNavigate()
-    const { register, handleSubmit,reset} = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const [passwordError, setPasswordError] = useState('')
 
     //Handle Login
@@ -66,14 +67,18 @@ const LogIn = () => {
                                     <input {...register("password")} type="password" placeholder="password" className="input input-bordered" required />
 
                                     <label className="label">
-                                    <span className="label-text text-red-600 font-bold">{passwordError}</span>
+                                        <span className="label-text text-red-600 font-bold">{passwordError}</span>
                                     </label>
                                 </div>
-                                <p className="text-white">Dont't have an account? <Link className="hover:underline " to={'/signUp'}>Sign Up</Link> </p>
+                                <p className="text-white text-sm">Dont't have an account? <Link className="hover:underline " to={'/signUp'}>Sign Up</Link> </p>
                                 <div className="mt-6 ">
                                     <input className="btn Shared_Color w-full" type="submit" value="Log In" />
                                 </div>
                             </form>
+                            {/* social Login */}
+                            <div>
+                                <SocialLogIn text={'Or Log In With'} />
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
-import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../../SDK";
 
@@ -19,8 +19,20 @@ const ContextApi = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    //Update User
+    const UpdateUser = (name, photo_Url) => {
+        setLoading(true)
+        return updateProfile(auth.currentUser, {
+            displayName: name, photoURL: photo_Url
+        })
+    }
 
+    // Google Sign In
+    const GoogleProvider = new GoogleAuthProvider();
 
+    const GoogleSignUp = () => {
+        return signInWithPopup(auth, GoogleProvider)
+    }
 
     //Sign In User
     const SignInUser = (email, password) => {
@@ -58,7 +70,9 @@ const ContextApi = ({ children }) => {
         AuthUser,
         loading,
         createUser,
+        UpdateUser,
         SignInUser,
+        GoogleSignUp,
         LogOut
     }
 

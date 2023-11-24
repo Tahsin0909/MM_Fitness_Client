@@ -8,7 +8,7 @@ import { AuthContext } from "../ContextApi/ContextApi";
 
 
 const SignUp = () => {
-    const {createUser} = useContext(AuthContext)
+    const { createUser, UpdateUser } = useContext(AuthContext)
     // Navigate After LOgIn
     // const location = useLocation()
     // const navigate = useNavigate()
@@ -18,13 +18,13 @@ const SignUp = () => {
     //Handle Login
     const onSubmit = data => {
 
-        const User = {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            profileImage: data.profileImage,
-            role: 'user'
-        }
+        // const User = {
+        //     name: data.name,
+        //     email: data.email,
+        //     password: data.password,
+        //     profileImage: data.profileImage,
+        //     role: 'user'
+        // }
         // regx to check UpperCAse
         const UpperRegX = /(?=.*[A-Z])/;
 
@@ -39,7 +39,17 @@ const SignUp = () => {
                 // to check special charecter
                 if (SpecialRegX.test(data.password)) {
                     setPasswordError('')
-                    console.log(User);
+                    createUser(data.email, data.password)
+                        .then(result => {
+                            if(result.user){
+                                UpdateUser(data.name, data.Image)
+                            }
+                            console.log(result.user)
+                        })
+                        .catch((error) => {
+                            const errorMessage = error.message;
+                            console.log(errorMessage);
+                        });
 
                     reset()
                 }

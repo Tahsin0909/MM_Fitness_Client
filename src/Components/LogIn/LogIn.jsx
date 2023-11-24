@@ -1,12 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
+import { AuthContext } from "../ContextApi/ContextApi";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
 const LogIn = () => {
+    const {SignInUser} = useContext(AuthContext)
     // Navigate After LOgIn
     // const location = useLocation()
     // const navigate = useNavigate()
@@ -29,7 +31,12 @@ const LogIn = () => {
                 // to check special charecter
                 if (SpecialRegX.test(data.password)) {
                     setPasswordError('')
-                    console.log(data);
+                    SignInUser(data.email, data.password)
+                    .then(result => console.log(result.user))
+                    .catch((error) => {
+                        const errorMessage = error.message;
+                        console.log(errorMessage);
+                    });
                     reset()
                 }
                 else {

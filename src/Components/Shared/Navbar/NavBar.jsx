@@ -1,11 +1,23 @@
 import { Link } from "react-router-dom";
 import NavOptions from "./NavOptions";
 import Button from "../Button/Button";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
+import toast, { Toaster } from "react-hot-toast";
 
 const NavBar = () => {
-    const { AuthUser } = useContext(AuthContext)
+    const { AuthUser, LogOut } = useContext(AuthContext)
+
+    const ToastData = localStorage.getItem('ToastShowed')
+    const ShouldShowToast = JSON.parse(ToastData)
+    console.log(ToastData);
+    useEffect(()=>{
+        if(ShouldShowToast  == "false"){
+            toast.success( `Authenticating as ${AuthUser?.email}`)
+            localStorage.setItem('ToastShowed', JSON.stringify('True'))
+        }
+    }, [ShouldShowToast, AuthUser])
+
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">
             <div className="navbar ">
@@ -32,7 +44,9 @@ const NavBar = () => {
                 <div className="navbar-end">
                     {
                         AuthUser ? <div className="flex items-center gap-4">
-                            <Button text={"Log Out"}></Button>
+                            <Link onClick={() => {LogOut(), toast.success('Log Out Successful'), localStorage.removeItem('ToastShowed')}}>
+                                <Button text={"Log Out"}></Button>
+                            </Link>
                             <img className="md:w-12 w-10 rounded-full" src={AuthUser?.photoURL} alt="" />
                         </div>
                             :
@@ -40,6 +54,7 @@ const NavBar = () => {
                     }
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 };

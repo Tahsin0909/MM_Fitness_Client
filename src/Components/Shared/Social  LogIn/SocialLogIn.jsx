@@ -10,6 +10,7 @@ const SocialLogIn = ({ text }) => {
         GoogleSignUp()
             .then(result => {
                 console.log(result.user)
+                localStorage.setItem('ToastShowed', JSON.stringify('false'))
             })
             .catch((error) => {
                 const errorMessage = error.message;

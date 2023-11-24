@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
+import toast, { Toaster } from "react-hot-toast";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -45,10 +46,11 @@ const SignUp = () => {
                                 UpdateUser(data.name, data.Image)
                             }
                             console.log(result.user)
+                            localStorage.setItem('ToastShowed', JSON.stringify('false'))
                         })
                         .catch((error) => {
                             const errorMessage = error.message;
-                            console.log(errorMessage);
+                            toast.error( `${errorMessage}`)
                         });
 
                     reset()
@@ -122,6 +124,7 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 };

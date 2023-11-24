@@ -1,17 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
+import toast, { Toaster } from "react-hot-toast";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
 const LogIn = () => {
-    const {SignInUser} = useContext(AuthContext)
+    const { SignInUser } = useContext(AuthContext)
     // Navigate After LOgIn
     // const location = useLocation()
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
     const [passwordError, setPasswordError] = useState('')
 
@@ -32,11 +33,15 @@ const LogIn = () => {
                 if (SpecialRegX.test(data.password)) {
                     setPasswordError('')
                     SignInUser(data.email, data.password)
-                    .then(result => console.log(result.user))
-                    .catch((error) => {
-                        const errorMessage = error.message;
-                        console.log(errorMessage);
-                    });
+                        .then(result => {
+                            console.log(result.user)
+                            localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                            navigate('/')
+                        })
+                        .catch((error) => {
+                            const errorMessage = error.message;
+                            toast.error( `${errorMessage}`)
+                        });
                     reset()
                 }
                 else {
@@ -90,6 +95,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </div>
+            <Toaster />
         </div>
     );
 };

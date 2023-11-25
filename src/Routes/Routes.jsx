@@ -6,6 +6,7 @@ import OutLet from "../LayOut/Home/Outlet";
 import Home from "../LayOut/Home/Home";
 import LogIn from "../Components/LogIn/LogIn";
 import SignUp from "../Components/SignUp/SignUp";
+import GAllery from "../Components/Gallery/GAllery";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
         {
             path:'/signUp',
             element:<SignUp/>
+        },
+        {
+            path:'/gallery',
+            element:<GAllery/>
         },
     ]
   },

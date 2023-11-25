@@ -34,13 +34,22 @@ const LogIn = () => {
                     setPasswordError('')
                     SignInUser(data.email, data.password)
                         .then(result => {
-                            console.log(result.user)
+                            const User = {
+                                name: result.user.displayName,
+                                email: result.user.email,
+                                emailVerified: result.user.emailVerified,
+                                creationTime: result.user.metadata.creationTime,
+                                lastSignInTime: result.user.metadata.lastSignInTime,
+                                profileImage: result.user.photoURL,
+                                role: 'user'
+                            }
+                            console.log(User)
                             localStorage.setItem('ToastShowed', JSON.stringify('false'))
                             navigate('/')
                         })
                         .catch((error) => {
                             const errorMessage = error.message;
-                            toast.error( `${errorMessage}`)
+                            toast.error(`${errorMessage}`)
                         });
                     reset()
                 }

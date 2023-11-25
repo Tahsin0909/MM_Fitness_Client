@@ -10,7 +10,7 @@ const NavBar = () => {
 
     const ToastData = localStorage.getItem('ToastShowed')
     const ShouldShowToast = JSON.parse(ToastData)
-    console.log(ToastData);
+    // console.log(ToastData);
     useEffect(()=>{
         if(ShouldShowToast  == "false"){
             toast.success( `Authenticating as ${AuthUser?.email}`)

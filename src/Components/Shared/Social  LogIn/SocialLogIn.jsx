@@ -2,15 +2,32 @@
 
 import { useContext } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const SocialLogIn = ({ text }) => {
     const {GoogleSignUp} = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
 
     const handleGoogle = () => {
         GoogleSignUp()
             .then(result => {
-                console.log(result.user)
-                localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                const User = {
+                    name: result.user.displayName,
+                    email: result.user.email,
+                    emailVerified: result.user.emailVerified,
+                    creationTime: result.user.metadata.creationTime,
+                    lastSignInTime: result.user.metadata.lastSignInTime,
+                    profileImage: result.user.photoURL,
+                    role: 'user'
+                }
+                axiosPublic.patch(`/users/${result.user.email}`, User)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                        // location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                    }
+                })
             })
             .catch((error) => {
                 const errorMessage = error.message;

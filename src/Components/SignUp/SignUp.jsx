@@ -5,11 +5,13 @@ import { Link } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
     const { createUser, UpdateUser } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
     // Navigate After LOgIn
     // const location = useLocation()
     // const navigate = useNavigate()
@@ -19,13 +21,7 @@ const SignUp = () => {
     //Handle Login
     const onSubmit = data => {
 
-        // const User = {
-        //     name: data.name,
-        //     email: data.email,
-        //     password: data.password,
-        //     profileImage: data.profileImage,
-        //     role: 'user'
-        // }
+
         // regx to check UpperCAse
         const UpperRegX = /(?=.*[A-Z])/;
 
@@ -42,15 +38,37 @@ const SignUp = () => {
                     setPasswordError('')
                     createUser(data.email, data.password)
                         .then(result => {
-                            if(result.user){
-                                UpdateUser(data.name, data.Image)
-                            }
-                            console.log(result.user)
-                            localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                            UpdateUser(data.name, data.Image)
+                                .then(() => {
+                                    console.log(result.user);
+                                    const User = {
+                                        name: result.user.displayName,
+                                        email: result.user.email,
+                                        emailVerified: result.user.emailVerified,
+                                        creationTime: result.user.metadata.creationTime,
+                                        lastSignInTime: result.user.metadata.lastSignInTime,
+                                        profileImage: result.user.photoURL,
+                                        role: 'user'
+                                    }
+                                    console.log(User)
+                                    axiosPublic.post('/users', User)
+                                        .then(res => {
+                                            if (res.data.insertedId) {
+                                                localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                                                // location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                                            }
+                                        })
+
+                                })
+                                .catch((error) => {
+                                    const errorMessage = error.message;
+                                    toast.error(`${errorMessage}`)
+                                });
+
                         })
                         .catch((error) => {
                             const errorMessage = error.message;
-                            toast.error( `${errorMessage}`)
+                            toast.error(`${errorMessage}`)
                         });
 
                     reset()
@@ -71,7 +89,7 @@ const SignUp = () => {
                 <div className="hero min-h-screen " style={{ backgroundImage: 'url(https://i.ibb.co/xMSG4f1/a3.jpg)' }}>
                     <div className="hero-overlay bg-opacity-40"></div>
                     <div className="hero-content">
-                        <div className="md:p-16 p-10 rounded-lg glass md:mt-0 mt-20">
+                        <div className="md:p-16 p-10 rounded-lg glass md:mt-4 mt-20">
                             <h1 className="text-center text-2xl text-white font-bold">Register Now:</h1>
                             <form onSubmit={handleSubmit(onSubmit)}>
                                 <div className="flex flex-col md:flex-row gap-4 items-center">

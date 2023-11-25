@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
@@ -13,8 +13,8 @@ const SignUp = () => {
     const { createUser, UpdateUser } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     // Navigate After LOgIn
-    // const location = useLocation()
-    // const navigate = useNavigate()
+    const location = useLocation()
+    const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
     const [passwordError, setPasswordError] = useState('')
 
@@ -55,7 +55,8 @@ const SignUp = () => {
                                         .then(res => {
                                             if (res.data.insertedId) {
                                                 localStorage.setItem('ToastShowed', JSON.stringify('false'))
-                                                // location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                                                toast.success(`Authenticating as ${result.user.email}`)
+                                                location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
                                             }
                                         })
 

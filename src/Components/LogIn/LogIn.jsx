@@ -1,17 +1,19 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
 const LogIn = () => {
     const { SignInUser } = useContext(AuthContext)
+    const axiosPublic = useAxiosPublic()
     // Navigate After LOgIn
-    // const location = useLocation()
+    const location = useLocation()
     const navigate = useNavigate()
     const { register, handleSubmit, reset } = useForm();
     const [passwordError, setPasswordError] = useState('')
@@ -43,9 +45,15 @@ const LogIn = () => {
                                 profileImage: result.user.photoURL,
                                 role: 'user'
                             }
-                            console.log(User)
-                            localStorage.setItem('ToastShowed', JSON.stringify('false'))
-                            navigate('/')
+                            axiosPublic.patch(`/users/${result.user.email}`, User)
+                                .then(res => {
+                                    console.log(res.data);
+                                    if (res.data.insertedId || res.data.modifiedCount > 0) {
+                                        toast.success(`Authenticating as ${result.user.email}`)
+                                        localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                                        location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                                    }
+                                })
                         })
                         .catch((error) => {
                             const errorMessage = error.message;

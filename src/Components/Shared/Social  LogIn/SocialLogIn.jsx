@@ -3,11 +3,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import toast, { Toaster } from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialLogIn = ({ text }) => {
-    const {GoogleSignUp} = useContext(AuthContext)
+    const { GoogleSignUp } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
-
+    // Navigate After LOgIn
+    const location = useLocation()
+    const navigate = useNavigate()
     const handleGoogle = () => {
         GoogleSignUp()
             .then(result => {
@@ -21,13 +25,14 @@ const SocialLogIn = ({ text }) => {
                     role: 'user'
                 }
                 axiosPublic.patch(`/users/${result.user.email}`, User)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.insertedId) {
-                        localStorage.setItem('ToastShowed', JSON.stringify('false'))
-                        // location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
-                    }
-                })
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.insertedId  || (res.data.modifiedCount > 0 || res.data.matchedCount > 0) ) {
+                            toast.success(`Authenticating as ${result.user.email}`)
+                            localStorage.setItem('ToastShowed', JSON.stringify('false'))
+                            location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                        }
+                    })
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -39,10 +44,11 @@ const SocialLogIn = ({ text }) => {
             <div className="divider divider-neutral text-white">{text}</div>
 
             <div className=" flex gap-8 md:gap-10 items-center justify-center ">
-                <img onClick={handleGoogle}  className="w-10 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-200" src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="Google Sign Up" />
+                <img onClick={handleGoogle} className="w-10 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-200" src="https://cdn-icons-png.flaticon.com/128/281/281764.png" alt="Google Sign Up" />
                 <img className="w-10 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-200" src="https://cdn-icons-png.flaticon.com/128/5968/5968764.png" alt="Facebook Sign Up" />
                 <img className="w-10 transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-110  duration-200" src="https://cdn-icons-png.flaticon.com/128/3955/3955024.png" alt="Instagram Sign up" />
             </div>
+            <Toaster />
         </div>
     );
 };

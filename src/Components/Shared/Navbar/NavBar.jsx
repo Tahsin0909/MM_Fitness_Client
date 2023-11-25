@@ -1,22 +1,12 @@
 import { Link } from "react-router-dom";
 import NavOptions from "./NavOptions";
 import Button from "../Button/Button";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
 
 const NavBar = () => {
     const { AuthUser, LogOut } = useContext(AuthContext)
-
-    const ToastData = localStorage.getItem('ToastShowed')
-    const ShouldShowToast = JSON.parse(ToastData)
-    // console.log(ToastData);
-    useEffect(()=>{
-        if(ShouldShowToast  == "false"){
-            toast.success( `Authenticating as ${AuthUser?.email}`)
-            localStorage.setItem('ToastShowed', JSON.stringify('True'))
-        }
-    }, [ShouldShowToast, AuthUser])
 
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">

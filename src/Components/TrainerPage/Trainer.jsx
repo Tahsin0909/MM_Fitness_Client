@@ -6,7 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
-    const { isPending, data, refetch } = useQuery({
+    const { isPending, data} = useQuery({
         queryKey: ['trainerData'],
         queryFn: async () => {
             const res = await axiosPublic.get('/trainer');

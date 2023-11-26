@@ -1,11 +1,12 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Cover from "../Shared/Cover/Cover";
 
-
-const getImage = async ({ pageParams = 0 }) => {
-    const res = await fetch(`http://localhost:5000/gallery?limit=12&offset=${pageParams}`)
+let pageParams = 0
+const getImage = async () => {
+    const res = await fetch(`http://localhost:5000/gallery?limit=10&offset=${pageParams}`)
     const data = await res.json()
-    return { ...data , prvOffset:pageParams }
+    return { data, prvOffset: pageParams }
 }
 
 
@@ -14,35 +15,59 @@ const GAllery = () => {
         data,
         fetchNextPage,
         hasNextPage,
+        isLoading,
     } = useInfiniteQuery({
         queryKey: ['image'],
         queryFn: getImage,
-        getNextPageParam: (lastPage) => lastPage.prvOffset + 12,
-    })
-    console.log(data);
-    // const images = data?.pages.reduce((acc, page) =>{
-    //     console.log(acc);
-    //     console.log(page);
-    //     return [...acc, page]
-    // }, [])
+        getNextPageParam: (lastPage) => {
+            if (lastPage.prvOffset <= 20) {
+                return pageParams = lastPage.prvOffset + 10
+            }
+        }
 
-    // console.log(images);
+    })
+    // console.log(data);
+    const images = data?.pages.reduce((acc, page) => {
+        return [...acc, ...page.data]
+    }, [])
+
+
     return (
-        <div className="h-[200vh]">
-            <p>GAllery</p>
-            <InfiniteScroll
-            dataLength={data?.pages[0].length || 0}
-            next={() => fetchNextPage()}
-            hasMore={hasNextPage}
-            >
-                <div>
+        <div className="-translate-y-20">
+            <Cover title={'Gallery'} />
+
+            <div className="h-full mx-6 flex justify-center items-center my-5">
+                <InfiniteScroll
+                    dataLength={32}
+                    next={() => fetchNextPage()}
+                    hasMore={hasNextPage}
+                >
                     {
-                        data?.pages.map(data => <div key={data._id}>
-                            <img className="w-40" src={data.url} alt="" />
-                        </div> )
+                        isLoading ? <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton w-[450px] h-[300px]"></div>
+                        </div>
+                            :
+                            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
+                                {
+                                    images?.map((data, idx) => <div key={idx}>
+                                        <img className="w-[450px] h-[300px] rounded-lg transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-105  duration-300" src={data.url} alt="" />
+
+                                    </div>)
+                                }
+                            </div>
                     }
-                </div>
-            </InfiniteScroll>
+
+                </InfiniteScroll>
+            </div>
+
         </div>
     );
 };

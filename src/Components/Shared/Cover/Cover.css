@@ -1,0 +1,8 @@
+.demo-text {
+	font-size: 80px;
+	font-weight: 700;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: transparent;
+	background-image: url('https://www.shutterstock.com/image-vector/red-metal-texture-background-foil-260nw-1667973877.jpg');
+}

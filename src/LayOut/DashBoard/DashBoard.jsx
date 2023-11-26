@@ -1,36 +1,91 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { FaFileAlt } from "react-icons/fa";
+import { AiFillReconciliation } from "react-icons/ai";
+import { BsFillPersonBadgeFill } from "react-icons/bs";
+import { MdDashboard } from "react-icons/md";
+import { IoMdHome } from "react-icons/io";
 import './Dashboard.css'
+import { IoLogOut } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../../Components/ContextApi/ContextApi";
+import toast, { Toaster } from "react-hot-toast";
 
 
 const DashBoard = () => {
+    const { AuthUser, LogOut } = useContext(AuthContext)
     return (
         <>
             <div className="">
-                <div className="  h-screen w-[300px] dashboard">
-                    <div className="lg:px-6 py-2 h-full flex flex-col  "  >
-                        <NavLink
-                            to={`/appliedTrainer`}
-                            className={({ isActive, isPending }) =>
-                                isActive ? "active  border py-2 px-4 Shared_Color  text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4 lg:text-white"}
-                        >
-                            Applied Trainer
-                        </NavLink>
+                <div className="hero h-screen w-[300px] dashboard">
+                    <div className="hero-overlay bg-opacity-60"></div>
+                    <div className="h-full flex flex-col justify-start items-start mt-10">
                         <NavLink
                             to={`/dashboard`}
                             className={({ isActive, isPending }) =>
-                                isActive ? "active border py-2 px-4 Shared_Color text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4  lg:text-white"}
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px]  lg:text-white"}
                         >
-                            All Trainer
+                            <div className="flex items-center gap-4">
+                                <MdDashboard size={20} />
+                                <p>DashBoard</p>
+                            </div>
+
                         </NavLink>
                         <NavLink
                             to={`/appliedTrainer`}
                             className={({ isActive, isPending }) =>
-                                isActive ? "active border py-2 px-4 Shared_Color  text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4 lg:text-white"}
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
                         >
-                            Be a Trainer
+                            <div className="flex items-center gap-4">
+                                <FaFileAlt size={20} />
+                                <p>Applied Trainer</p>
+                            </div>
+                        </NavLink>
+                        <NavLink
+                            to={`/trainer`}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px]  lg:text-white"}
+                        >
+                            <div className="flex items-center gap-4">
+                                <BsFillPersonBadgeFill size={20} />
+                                <p>All Trainer</p>
+                            </div>
+
+                        </NavLink>
+                        <NavLink
+                            to={`/appliedTrainer`}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
+                        >
+                            <div className="flex items-center gap-4">
+                                <AiFillReconciliation size={25} />
+                                <p>Be a Trainer</p>
+                            </div>
+                        </NavLink>
+                        <div className="divider divider-error"></div>
+                        <NavLink
+                            to={`/`}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
+                        >
+                            <div className="flex items-center gap-4">
+                                <IoMdHome size={25} />
+                                <p>Home</p>
+                            </div>
+                        </NavLink>
+                        <NavLink
+                            onClick={() => { LogOut(), toast.success('Log Out Successful') }}
+                            to={`/`}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
+                        >
+                            <div className="flex items-center gap-4">
+                                <IoLogOut size={25} />
+                                <p>Log Out</p>
+                            </div>
                         </NavLink>
                     </div>
                 </div>
+                <Toaster />
             </div>
         </>
     );

@@ -34,7 +34,7 @@ const NavBar = () => {
                 <div className="navbar-end">
                     {
                         AuthUser ? <div className="flex items-center gap-4">
-                            <Link onClick={() => {LogOut(), toast.success('Log Out Successful'), localStorage.removeItem('ToastShowed')}}>
+                            <Link onClick={() => {LogOut(), toast.success('Log Out Successful')}}>
                                 <Button text={"Log Out"}></Button>
                             </Link>
                             <img className="md:w-12 w-10 rounded-full" src={AuthUser?.photoURL} alt="" />

@@ -8,7 +8,7 @@ const Trainer = () => {
             <Cover title={'Trainer'} />
             <div className="-translate-y-16 lg:mx-6">
                 <div className="flex justify-end" >
-                    <Link className="my-4">
+                    <Link to={'/dashboard'} className="my-4">
                         <Button text={'Be a trainer'} />
                     </Link>
                 </div>

@@ -16,11 +16,11 @@ const DashBoard = () => {
     return (
         <>
             <div className="">
-                <div className="hero h-screen w-[300px] dashboard">
+                <div className="hero h-[750px] w-[300px] dashboard">
                     <div className="hero-overlay bg-opacity-60"></div>
-                    <div className="h-full flex flex-col justify-start items-start mt-10">
+                    <div className="h-full flex flex-col justify-start items-start pt-10">
                         <NavLink
-                            to={`/dashboard`}
+                            to={`/dashboard/home`}
                             className={({ isActive, isPending }) =>
                                 isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px]  lg:text-white"}
                         >
@@ -31,7 +31,7 @@ const DashBoard = () => {
 
                         </NavLink>
                         <NavLink
-                            to={`/appliedTrainer`}
+                            to={`/dashboard/appliedTrainer`}
                             className={({ isActive, isPending }) =>
                                 isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
                         >
@@ -41,7 +41,7 @@ const DashBoard = () => {
                             </div>
                         </NavLink>
                         <NavLink
-                            to={`/trainer`}
+                            to={`/dashboard/trainer`}
                             className={({ isActive, isPending }) =>
                                 isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px]  lg:text-white"}
                         >
@@ -52,7 +52,7 @@ const DashBoard = () => {
 
                         </NavLink>
                         <NavLink
-                            to={`/appliedTrainer`}
+                            to={`/dashboard/beTrainer`}
                             className={({ isActive, isPending }) =>
                                 isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
                         >
@@ -78,7 +78,7 @@ const DashBoard = () => {
                             className={({ isActive, isPending }) =>
                                 isActive ? "active Shared_Color py-2 pl-6 w-[250px] rounded-lg lg:text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[250px] lg:text-white"}
                         >
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-3">
                                 <IoLogOut size={25} />
                                 <p>Log Out</p>
                             </div>

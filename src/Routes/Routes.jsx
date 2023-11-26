@@ -8,7 +8,8 @@ import LogIn from "../Components/LogIn/LogIn";
 import SignUp from "../Components/SignUp/SignUp";
 import GAllery from "../Components/Gallery/GAllery";
 import Trainer from "../Components/TrainerPage/Trainer";
-import DashBoard from "../LayOut/DashBoard/DashBoard";
+import BeATrainer from "../Components/DasBoard PAge/BeATrainer";
+import DashBoardHome from "../LayOut/DashBoard/Home/DashBoardHome";
 
 export const router = createBrowserRouter([
   {
@@ -38,7 +39,13 @@ export const router = createBrowserRouter([
     ]
   },
   {
-    path: '/dashboard',
-    element: <DashBoard />
+    path: 'dashboard',
+    element: <DashBoardHome />,
+    children: [
+      {
+        path:'beTrainer',
+        element:<BeATrainer/>
+      },
+    ]
   },
 ]);

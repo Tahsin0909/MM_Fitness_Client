@@ -15,7 +15,7 @@ const DashBoard = () => {
     const { LogOut } = useContext(AuthContext)
     return (
         <>
-            <div className="">
+            <div className="fixed ">
                 <div className="hero h-[750px] w-[300px] dashboard">
                     <div className="hero-overlay bg-opacity-60"></div>
                     <div className="h-full flex flex-col justify-start items-start pt-10">

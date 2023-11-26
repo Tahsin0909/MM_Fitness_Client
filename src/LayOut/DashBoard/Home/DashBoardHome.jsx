@@ -5,7 +5,9 @@ const DashBoardHome = () => {
     return (
         <div className="flex">
             <DashBoard></DashBoard>
-            <Outlet></Outlet>
+            <div className="lg:ml-72 lg:w-[80vw] ">
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };

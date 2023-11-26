@@ -83,234 +83,233 @@ const BeATrainer = () => {
                     });
                 }
             })
-        console.log(appliedData);
         reset()
     }
 
     return (
-        <div className=" flex justify-center items-center w-full">
-            <div className="md:p-12 p-10 rounded-lg bg-neutral-content">
-                <h1 className="text-start mb-4 text-2xl font-bold">Apply Now:</h1>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className="flex flex-col md:flex-row gap-4 items-center">
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">Name</span>
-                            </label>
-
-                            <input {...register("name")} type="text" placeholder="Name" className="input input-bordered w-[250px]" />
-                        </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">Profile Image</span>
-                            </label>
-
-                            <input {...register("Image")} type="text" placeholder="URL..." className="input input-bordered w-[250px]" />
-
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-4 items-center">
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">Email</span>
-                            </label>
-
-                            <input {...register("email")} type="email" placeholder="email" readOnly className="input input-bordered w-[250px]" />
-
-                        </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">Age</span>
-                            </label>
-
-                            <input {...register("age")} type="number" placeholder="age" className="input input-bordered w-[250px]" />
-                        </div>
-                    </div>
-                    <div className="flex flex-col md:flex-row gap-6 items-center">
-                        {/* checkbox */}
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">Skills</span>
-                            </label>
-                            <div className="grid grid-cols-2 ">
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Body Building"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm "
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Body Building
-                                    </label>
-                                </div>
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Musculation"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm"
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Musculation
-                                    </label>
-                                </div>
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Fitness running"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm"
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Fitness running
-                                    </label>
-                                </div>
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Classic Yoga"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm"
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Classic Yoga
-                                    </label>
-                                </div>
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Weight Lifting"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm"
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Weight Lifting
-                                    </label>
-                                </div>
-                                <div className="form-check mt-4">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        name="skill"
-                                        value="Strength Training"
-                                        id="flexCheckDefault"
-                                        onChange={
-                                            handleChange
-                                        }
-                                    />
-                                    <label
-                                        className="form-check-label text-sm"
-                                        htmlFor="flexCheckDefault"
-                                    >
-                                        Strength Training
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        {/* checkbox */}
-                        <div>
+            <div className="flex justify-center items-center  h-screen">
+                <div className="md:p-12 p-10 rounded-lg bg-neutral-content">
+                    <h1 className="text-start mb-4 text-2xl font-bold">Apply Now:</h1>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="flex flex-col md:flex-row gap-4 items-center">
                             <div className="">
                                 <label className="label">
-                                    <span className="label-text ">Salary</span>
+                                    <span className="label-text ">Name</span>
                                 </label>
 
-                                <input {...register("salary")} type="number" placeholder="expected salary" className="input input-bordered w-[250px]" />
+                                <input {...register("name")} type="text" placeholder="Name" className="input input-bordered w-[250px]" />
                             </div>
                             <div className="">
                                 <label className="label">
-                                    <span className="label-text ">Detail</span>
+                                    <span className="label-text ">Profile Image</span>
                                 </label>
 
-                                <input {...register("detail")} type="text" placeholder="About Yourself" className="input input-bordered w-[250px]" />
+                                <input {...register("Image")} type="text" placeholder="URL..." className="input input-bordered w-[250px]" />
+
                             </div>
                         </div>
-                    </div>
-                    {/* time Slot */}
-                    <div className="flex items-center gap-1">
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">1st Slot</span>
-                            </label>
+                        <div className="flex flex-col md:flex-row gap-4 items-center">
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">Email</span>
+                                </label>
 
-                            <input {...register("slot1")} type="text" placeholder="1st Slot" className="input input-bordered w-[100px]" />
+                                <input {...register("email")} type="email" placeholder="email" readOnly className="input input-bordered w-[250px]" />
 
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">Age</span>
+                                </label>
+
+                                <input {...register("age")} type="number" placeholder="age" className="input input-bordered w-[250px]" />
+                            </div>
                         </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">2nd Slot</span>
-                            </label>
+                        <div className="flex flex-col md:flex-row gap-6 items-center">
+                            {/* checkbox */}
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">Skills</span>
+                                </label>
+                                <div className="grid grid-cols-2 ">
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Body Building"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm "
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Body Building
+                                        </label>
+                                    </div>
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Musculation"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm"
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Musculation
+                                        </label>
+                                    </div>
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Fitness running"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm"
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Fitness running
+                                        </label>
+                                    </div>
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Classic Yoga"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm"
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Classic Yoga
+                                        </label>
+                                    </div>
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Weight Lifting"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm"
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Weight Lifting
+                                        </label>
+                                    </div>
+                                    <div className="form-check mt-4">
+                                        <input
+                                            className="form-check-input"
+                                            type="checkbox"
+                                            name="skill"
+                                            value="Strength Training"
+                                            id="flexCheckDefault"
+                                            onChange={
+                                                handleChange
+                                            }
+                                        />
+                                        <label
+                                            className="form-check-label text-sm"
+                                            htmlFor="flexCheckDefault"
+                                        >
+                                            Strength Training
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* checkbox */}
+                            <div>
+                                <div className="">
+                                    <label className="label">
+                                        <span className="label-text ">Salary</span>
+                                    </label>
 
-                            <input {...register("slot2")} type="text" placeholder="2nd Slot" className="input input-bordered w-[100px]" />
+                                    <input {...register("salary")} type="number" placeholder="expected salary" className="input input-bordered w-[250px]" />
+                                </div>
+                                <div className="">
+                                    <label className="label">
+                                        <span className="label-text ">Detail</span>
+                                    </label>
 
+                                    <input {...register("detail")} type="text" placeholder="About Yourself" className="input input-bordered w-[250px]" />
+                                </div>
+                            </div>
                         </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">3rd Slot</span>
-                            </label>
+                        {/* time Slot */}
+                        <div className="flex items-center gap-1">
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">1st Slot</span>
+                                </label>
 
-                            <input {...register("slot3")} type="text" placeholder="3rd Slot" className="input input-bordered w-[100px]" />
+                                <input {...register("slot1")} type="text" placeholder="1st Slot" className="input input-bordered w-[100px]" />
 
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">2nd Slot</span>
+                                </label>
+
+                                <input {...register("slot2")} type="text" placeholder="2nd Slot" className="input input-bordered w-[100px]" />
+
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">3rd Slot</span>
+                                </label>
+
+                                <input {...register("slot3")} type="text" placeholder="3rd Slot" className="input input-bordered w-[100px]" />
+
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">4th Slot</span>
+                                </label>
+
+                                <input {...register("slot4")} type="text" placeholder="4th Slot" className="input input-bordered w-[100px]" />
+
+                            </div>
+                            <div className="">
+                                <label className="label">
+                                    <span className="label-text ">5th Slot</span>
+                                </label>
+
+                                <input {...register("slot5")} type="text" placeholder="5th Slot" className="input input-bordered w-[100px]" />
+
+                            </div>
                         </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">4th Slot</span>
-                            </label>
-
-                            <input {...register("slot4")} type="text" placeholder="4th Slot" className="input input-bordered w-[100px]" />
-
+                        {/* submit button */}
+                        <div className="mt-6">
+                            <input className="btn Shared_Color w-full" type="submit" value="Apply" />
                         </div>
-                        <div className="">
-                            <label className="label">
-                                <span className="label-text ">5th Slot</span>
-                            </label>
-
-                            <input {...register("slot5")} type="text" placeholder="5th Slot" className="input input-bordered w-[100px]" />
-
-                        </div>
-                    </div>
-                    {/* submit button */}
-                    <div className="mt-6">
-                        <input className="btn Shared_Color w-full" type="submit" value="Apply" />
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
     );
 };
 

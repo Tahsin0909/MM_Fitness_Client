@@ -10,6 +10,7 @@ import GAllery from "../Components/Gallery/GAllery";
 import Trainer from "../Components/TrainerPage/Trainer";
 import BeATrainer from "../Components/DasBoard PAge/BeATrainer";
 import DashBoardHome from "../LayOut/DashBoard/Home/DashBoardHome";
+import Applied_Trainer from "../Components/DasBoard PAge/Applied Trainer/Applied_Trainer";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path:'beTrainer',
         element:<BeATrainer/>
+      },
+      {
+        path:'appliedTrainer',
+        element:<Applied_Trainer/>
       },
     ]
   },

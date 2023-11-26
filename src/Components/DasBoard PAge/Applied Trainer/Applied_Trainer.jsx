@@ -13,10 +13,10 @@ const Applied_Trainer = () => {
             return res.data;
         }
     })
-    console.log(data);
+    // console.log(data);
 
     const handleHire = (applyData) => {
-        console.log(applyData)
+        // console.log(applyData)
         const trainerData = {
             name: applyData.name,
             email: applyData.email,
@@ -33,7 +33,7 @@ const Applied_Trainer = () => {
                 if (res.data.insertedId) {
                     axiosSecure.delete(`/appliedTrainer/${applyData.email}`)
                         .then(res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                             if (res.data.deletedCount > 0) {
                                 Swal.fire({
                                     title: "Congratulation",
@@ -50,10 +50,10 @@ const Applied_Trainer = () => {
     }
 
     const handleReject = (email) => {
-        console.log(email)
+        // console.log(email)
         axiosSecure.delete(`/appliedTrainer/${email}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.deletedCount > 0) {
                     Swal.fire({
                         title: "Congratulation",
@@ -128,7 +128,8 @@ const Applied_Trainer = () => {
                                         </div>
                                         <div className="p-3">
                                             <p className="">{apply.details.slice(0, 200)}...</p>
-                                            <p className="my-4 font-semibold">Expected Salary: ${apply.salary}</p>
+                                            <p className="mb-2 mt-4 font-semibold">Expected Salary: ${apply.salary}</p>
+                                            <p className="mb-4 font-semibold">Experience: {apply.experience} years</p>
                                             <div className="h-32">
                                                 <div className="grid grid-cols-2 mt-2 gap-2 w-[300px] my-4">
                                                     {

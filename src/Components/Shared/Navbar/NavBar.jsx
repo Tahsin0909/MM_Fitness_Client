@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import NavOptions from "./NavOptions";
 import Button from "../Button/Button";
-import { useContext} from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
 
 const NavBar = () => {
     const { AuthUser, LogOut } = useContext(AuthContext)
-console.log(AuthUser);
+    // console.log(AuthUser);
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">
             <div className="navbar ">
@@ -34,7 +34,7 @@ console.log(AuthUser);
                 <div className="navbar-end">
                     {
                         AuthUser ? <div className="flex items-center gap-4">
-                            <Link onClick={() => {LogOut(), toast.success('Log Out Successful')}}>
+                            <Link onClick={() => { LogOut(), toast.success('Log Out Successful') }}>
                                 <Button text={"Log Out"}></Button>
                             </Link>
                             <img className="md:w-12 w-10 rounded-full" src={AuthUser?.photoURL} alt="" />

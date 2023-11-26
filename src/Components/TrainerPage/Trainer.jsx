@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 import Button from "../Shared/Button/Button";
 import Cover from "../Shared/Cover/Cover";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 
 const Trainer = () => {
+    const axiosPublic = useAxiosPublic()
+    const { isPending, data, refetch } = useQuery({
+        queryKey: ['trainerData'],
+        queryFn: async () => {
+            const res = await axiosPublic.get('/trainer');
+            return res.data;
+        }
+    })
     return (
         <div>
             <Cover title={'Trainer'} />

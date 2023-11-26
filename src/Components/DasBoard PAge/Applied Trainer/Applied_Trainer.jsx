@@ -23,6 +23,7 @@ const Applied_Trainer = () => {
             photo_url: applyData.photo_url,
             age: applyData.age,
             skill: applyData.skill,
+            experience: applyData.experience,
             salary: applyData.salary,
             details: applyData.details,
             timeSlots: applyData.timeSlots,

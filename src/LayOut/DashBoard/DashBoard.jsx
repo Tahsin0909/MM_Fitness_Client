@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 import { FaFileAlt } from "react-icons/fa";
 import { AiFillReconciliation } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
@@ -12,7 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 
 const DashBoard = () => {
-    const { AuthUser, LogOut } = useContext(AuthContext)
+    const { LogOut } = useContext(AuthContext)
     return (
         <>
             <div className="">

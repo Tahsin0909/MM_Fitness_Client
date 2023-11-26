@@ -1,8 +1,11 @@
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../ContextApi/ContextApi";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const BeATrainer = () => {
+    const axiosPublic = useAxiosPublic()
     const { AuthUser } = useContext(AuthContext)
     const { register, handleSubmit, reset } = useForm({
         defaultValues: {
@@ -10,7 +13,7 @@ const BeATrainer = () => {
             email: AuthUser?.email,
             Image: AuthUser?.photoURL,
         }
-      });
+    });
     const [skills, setSkills] = useState({
         skill: [],
     });
@@ -50,15 +53,36 @@ const BeATrainer = () => {
             salary: data.salary,
             details: data.detail,
             timeSlots: [
-                { slot:"Slot 1", time: data.slot1  },
-                { slot:"Slot 2", time: data.slot2  },
-                { slot:"Slot 3", time: data.slot3  },
-                { slot:"Slot 4", time: data.slot4  },
-                { slot:"Slot 5", time: data.slot5  },
+                { slot: "Slot 1", time: data.slot1 },
+                { slot: "Slot 2", time: data.slot2 },
+                { slot: "Slot 3", time: data.slot3 },
+                { slot: "Slot 4", time: data.slot4 },
+                { slot: "Slot 5", time: data.slot5 },
 
             ],
             role: "user"
         }
+        axiosPublic.post('/appliedTrainer', appliedData)
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Congratulation",
+                        text: "Application Sent Successfully",
+                        icon: "success",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                }
+                else {
+                    Swal.fire({
+                        title: "Sorry",
+                        text: "Oh! You already applied for the job",
+                        icon: "error",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                }
+            })
         console.log(appliedData);
         reset()
     }
@@ -74,7 +98,7 @@ const BeATrainer = () => {
                                 <span className="label-text ">Name</span>
                             </label>
 
-                            <input {...register("name")} type="text" placeholder="Name"  className="input input-bordered w-[250px]" />
+                            <input {...register("name")} type="text" placeholder="Name" className="input input-bordered w-[250px]" />
                         </div>
                         <div className="">
                             <label className="label">
@@ -91,7 +115,7 @@ const BeATrainer = () => {
                                 <span className="label-text ">Email</span>
                             </label>
 
-                            <input {...register("email")} type="email" placeholder="email"  readOnly className="input input-bordered w-[250px]" />
+                            <input {...register("email")} type="email" placeholder="email" readOnly className="input input-bordered w-[250px]" />
 
                         </div>
                         <div className="">
@@ -108,7 +132,7 @@ const BeATrainer = () => {
                             <label className="label">
                                 <span className="label-text ">Skills</span>
                             </label>
-                            <div className="grid grid-cols-2 border-2">
+                            <div className="grid grid-cols-2 ">
                                 <div className="form-check mt-4">
                                     <input
                                         className="form-check-input"

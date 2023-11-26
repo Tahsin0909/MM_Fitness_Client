@@ -25,6 +25,13 @@ const NavOptions = () => {
                 Gallery
             </NavLink>
             <NavLink
+                to={`/dashboard`}
+                className={({ isActive, isPending }) =>
+                    isActive ? "active border py-2 px-4 Shared_Color text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4  lg:text-white" }
+            >
+                Dashboard
+            </NavLink>
+            <NavLink
                 to={`/forum`}
                 className={({ isActive, isPending }) =>
                     isActive ? "active border py-2 px-4 Shared_Color text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4  lg:text-white" }

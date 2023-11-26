@@ -33,7 +33,7 @@ const GAllery = () => {
 
 
     return (
-        <div className="-translate-y-20">
+        <div className="">
             <Cover title={'Gallery'} />
 
             <div className="h-full mx-6 flex justify-center items-center my-5">
@@ -44,15 +44,15 @@ const GAllery = () => {
                 >
                     {
                         isLoading ? <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
-                            <div className="skeleton w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
+                            <div className="skeleton  animate-pulse w-[450px] h-[300px]"></div>
                         </div>
                             :
                             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">

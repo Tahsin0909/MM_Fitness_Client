@@ -1,0 +1,18 @@
+.dashboard {
+    background-image: url('https://i.ibb.co/9wZ1mj4/360-F-608392394-0ug-JTOWi55p48-XRx-Zc-SZHo8xb5-Tk-JBc-F-1.jpg');
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-size: 300px 700px;
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        background-size: cover;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard {
+        background-size: contain; 
+    }
+}

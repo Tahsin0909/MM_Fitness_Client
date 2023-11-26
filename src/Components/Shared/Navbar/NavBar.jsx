@@ -7,7 +7,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 const NavBar = () => {
     const { AuthUser, LogOut } = useContext(AuthContext)
-
+console.log(AuthUser);
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">
             <div className="navbar ">

@@ -5,7 +5,7 @@ const DashBoardHome = () => {
     return (
         <div className="flex">
             <DashBoard></DashBoard>
-            <div className="lg:ml-72 lg:w-[80vw] ">
+            <div className="lg:ml-72 md:ml-40 lg:w-[80vw] ">
                 <Outlet></Outlet>
             </div>
         </div>

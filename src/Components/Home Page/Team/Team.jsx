@@ -5,29 +5,29 @@ import useTrainer from "../../../Hooks/useTrainer";
 const Team = () => {
     const [data, isPending] = useTrainer()
     return (
-        <div className="mx-6 py-6">
+        <div className=" py-6">
             <SectionTitle title={"Our Team"} subtitle={'We have the Best Team on this Planet'} />
             {
                 isPending ? <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4">
-                    <div className="flex flex-col gap-4 w-[350px] ">
+                    <div className="flex flex-col gap-4 w-[280px] md:w-[350px] ">
                         <div className="skeleton h-32 w-full"></div>
                         <div className="skeleton h-4 w-28"></div>
                         <div className="skeleton h-4 w-full"></div>
                         <div className="skeleton h-4 w-full"></div>
                     </div>
-                    <div className="flex flex-col gap-4 w-[350px]">
+                    <div className="flex flex-col gap-4 w-[280px] md:w-[350px]">
                         <div className="skeleton h-32 w-full"></div>
                         <div className="skeleton h-4 w-28"></div>
                         <div className="skeleton h-4 w-full"></div>
                         <div className="skeleton h-4 w-full"></div>
                     </div>
-                    <div className="flex flex-col gap-4 w-[350px]">
+                    <div className="flex flex-col gap-4 w-[280px] md:w-[350px]">
                         <div className="skeleton h-32 w-full"></div>
                         <div className="skeleton h-4 w-28"></div>
                         <div className="skeleton h-4 w-full"></div>
                         <div className="skeleton h-4 w-full"></div>
                     </div>
-                    <div className="flex flex-col gap-4 w-[350px]">
+                    <div className="flex flex-col gap-4 w-[280px] md:w-[350px]">
                         <div className="skeleton h-32 w-full"></div>
                         <div className="skeleton h-4 w-28"></div>
                         <div className="skeleton h-4 w-full"></div>
@@ -35,10 +35,9 @@ const Team = () => {
                     </div>
                 </div>
                     :
-
-                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4">
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mx-auto w-[280px] md:w-full  gap-4">
                         {
-                            data?.slice(0, 3).map(card => <div key={card._id} className="relative flex flex-col text-gray-700 bg-white shadow-md w-[350px] rounded-xl bg-clip-border">
+                            data?.slice(0, 3).map(card => <div key={card._id} className="relative flex flex-col text-gray-700 bg-white shadow-md w-[280px] md:w-[350px] rounded-xl bg-clip-border">
                                 <div className="relative mx-4 mt-4 overflow-hidden text-gray-700 bg-white shadow-lg h-80 rounded-xl bg-clip-border">
                                     <img className="w-full h-full object-cover" src={card.photo_url} alt="profile-picture" />
                                 </div>

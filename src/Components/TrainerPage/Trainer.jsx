@@ -60,7 +60,7 @@ const Trainer = () => {
                                             <div className="p-2 bg-neutral-content rounded-b-lg">
                                                 <p>Name: {trainer.name}</p>
                                                 <div className="flex items-center gap-6">
-                                                    <p>Experience: {trainer.experience}</p>
+                                                    <p>Experience: {trainer.experience} years</p>
                                                     <p>Age: {trainer.age}</p>
                                                 </div>
                                                 <div className="">

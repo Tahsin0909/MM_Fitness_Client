@@ -18,3 +18,6 @@ This project includes the following features:
 1. **Showing Toast**
    - The website incorporates toast notifications to provide users with instantaneous feedback, displaying messages for various actions such as       successful logouts, errors in form submissions, or successful authentication.
    - This feature allows for real-time feedback to users, enhancing the overall user experience on the website.
+1. **Date Feature**
+   - When The Trainer Join There Is A date feature to count the join date and enhance payment system
+   - This feature allows for real-time feedback to admin, enhancing the overall management system  on the website.

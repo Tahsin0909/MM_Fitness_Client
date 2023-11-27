@@ -89,7 +89,7 @@ const BeATrainer = () => {
 
     return (
         <div className="flex justify-center items-center  h-screen">
-            <div className="md:p-12 p-10 rounded-lg bg-neutral-content">
+            <div className="lg:p-10 md:p-4 rounded-lg bg-neutral-content">
                 <h1 className="text-start mb-4 text-2xl font-bold">Apply Now:</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="flex flex-col md:flex-row gap-4 items-center">

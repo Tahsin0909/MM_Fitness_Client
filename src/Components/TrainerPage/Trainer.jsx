@@ -3,13 +3,16 @@ import Button from "../Shared/Button/Button";
 import Cover from "../Shared/Cover/Cover";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 const Trainer = () => {
     const axiosPublic = useAxiosPublic()
-    const { isPending, data} = useQuery({
+    const [TrainerData, setTrainerData] = useState([])
+    const { isPending, data  } = useQuery({
         queryKey: ['trainerData'],
         queryFn: async () => {
             const res = await axiosPublic.get('/trainer');
+            setTrainerData(res.data)
             return res.data;
         }
     })
@@ -38,12 +41,13 @@ const Trainer = () => {
                             :
                             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
                                 {
-                                    data?.map(trainer => <div key={trainer._id}>
+                                    TrainerData  &&
+                                    TrainerData?.map(trainer => <div key={trainer._id}>
                                         <div className="w-[300px] h-full rounded-lg shadow-lg">
                                             <div className=" h-[500px] absolute opacity-0 hover:opacity-100 ease-out duration-300 ">
                                                 <div className="grid grid-cols-2 gap-4 p-4 w-[300px] h-[300px] bg-black bg-opacity-50">
                                                     {
-                                                        trainer.timeSlots.map((data, idx) => <div key={idx} className=" ">
+                                                        trainer.timeSlots?.map((data, idx) => <div key={idx} className=" ">
                                                             <div>
                                                                 <p className="text-center p-1 bg-gray-400 text-white rounded-sm">{data.slot}</p>
                                                                 <hr />
@@ -51,9 +55,9 @@ const Trainer = () => {
                                                             </div>
                                                         </div>)
                                                     }
-                                                    <button>
+                                                    <Link to={`/trainerDetails/${trainer.email}`}>
                                                         <Button text={'Know More'} />
-                                                    </button>
+                                                    </Link>
                                                 </div>
                                             </div>
                                             <img className="w-[300px] h-[300px] rounded-t-lg object-cover " src={trainer.photo_url} alt="" />
@@ -66,7 +70,7 @@ const Trainer = () => {
                                                 <div className="">
                                                     <div className="grid grid-cols-2 mt-2 gap-2 w-[280px] my-4">
                                                         {
-                                                            trainer.skill.slice(0, 4).map((data, idx) => <p className="border p-1 pl-2 bg-sky-100 rounded-md" key={idx}>{data}</p>)
+                                                            trainer.skill?.slice(0, 4).map((data, idx) => <p className="border p-1 pl-2 bg-sky-100 rounded-md" key={idx}>{data}</p>)
                                                         }
                                                     </div>
                                                 </div>

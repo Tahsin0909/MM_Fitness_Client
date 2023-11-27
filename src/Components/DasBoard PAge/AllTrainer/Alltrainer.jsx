@@ -1,5 +1,4 @@
 import useTrainer from "../../../Hooks/useTrainer";
-import Button from "../../Shared/Button/Button";
 
 const AllTrainer = () => {
     const [data, isPending] = useTrainer()
@@ -92,11 +91,9 @@ const AllTrainer = () => {
                                         </td>
                                         <td>
                                             {trainer.lastPayment != month &&
-                                                <div className=" w-[70px] h-[50px] flex justify-center items-center">
-                                                    <button>
-                                                        <Button text={'Pay'} />
-                                                    </button>
-                                                </div>
+                                                <button className="btn Shared_Color hover:text-red-800">
+                                                    Pay
+                                                </button>
                                             }
                                         </td>
                                     </tr>)

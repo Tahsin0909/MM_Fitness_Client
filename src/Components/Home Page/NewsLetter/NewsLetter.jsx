@@ -24,7 +24,7 @@ const NewsLetter = () => {
                     Swal.fire({
                         title: "Oh!",
                         text: `You already Subscribe`,
-                        icon: "success",
+                        icon: "info",
                         confirmButtonColor: "#c91b1b",
                         confirmButtonText: 'DONE'
                     });

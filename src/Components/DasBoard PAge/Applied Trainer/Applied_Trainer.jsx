@@ -18,10 +18,10 @@ const Applied_Trainer = () => {
     
     //Date When trainer join
     const currentDate = new Date()
-    const year = currentDate.getFullYear()
-    const month = currentDate.getMonth()
-    const date = currentDate.getDate()
-
+//     const year = currentDate.getFullYear()
+    const month = currentDate.getUTCMonth()
+//     const date = currentDate.getDate()
+// console.log(month);
 
     const handleHire = (applyData) => {
         // console.log(applyData)
@@ -35,8 +35,8 @@ const Applied_Trainer = () => {
             salary: applyData.salary,
             details: applyData.details,
             timeSlots: applyData.timeSlots,
-            lastPayment: 'pending',
-            joinDate: `${date}/${month}/${year}`,
+            lastPayment: month,
+            joinDate: currentDate,
             role: "trainer"
         }
         axiosSecure.post('/trainer', trainerData)

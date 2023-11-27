@@ -9,20 +9,54 @@ const TrainerDetail = () => {
     const DetailOf = useParams()
     const email = DetailOf.email
     const axiosPublic = useAxiosPublic()
-    const { isLoading, data } = useQuery({
-        queryKey: ['trainerData'],
+    const { isPending,error,isFetching, isLoading, data } = useQuery({
+        queryKey: ['trainerDetails', email],
         queryFn: async () => {
             const res = await axiosPublic.get(`/trainer/${email}`);
             return res.data;
         }
     })
 
-    console.log(data);
     return (
         <div>
             <Cover title={'Trainer Details'} />
             {
-                isLoading? <p>Loading...</p>
+                isPending ?
+                    < div >
+                        <div className="flex flex-col lg:flex-row  justify-center items-center gap-8">
+                            <div>
+                                <div className="flex md:flex-row flex-col justify-center items-center gap-4">
+                                    <div>
+                                        <div className="skeleton w-[300px] h-[300px] rounded-lg"></div>
+                                    </div>
+                                    <div>
+                                        <div className="skeleton h-8 w-28 mb-1"></div>
+                                        <div className="skeleton h-8 w-28 mb-1"></div>
+                                        <div className="flex gap-4 items-center mb-4">
+                                            <div className="skeleton h-8 w-20"></div>
+                                            <div className="skeleton h-8 w-20"></div>
+                                        </div>
+                                        <div className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-28"></div>
+                                            <div className="skeleton h-4 w-28"></div>
+                                            <div className="skeleton h-4 w-28"></div>
+                                            <div className="skeleton h-4 w-28"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="lg:w-[350px] md:w-[70vw] mx-2">
+                                <div className="skeleton lg:w-[350px] md:w-[70vw] h-48 mx-2"></div>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap justify-center md:gap-8 gap-2 p-8">
+                            <div className="skeleton w-32 h-20 md:w-40"></div>
+                            <div className="skeleton w-32 h-20 md:w-40"></div>
+                            <div className="skeleton w-32 h-20 md:w-40"></div>
+                            <div className="skeleton w-32 h-20 md:w-40"></div>
+                            <div className="skeleton w-32 h-20 md:w-40"></div>
+                        </div>
+                    </div>
                     :
                     < div >
                         <div className="flex flex-col lg:flex-row  justify-center items-center gap-8">

@@ -1,21 +1,14 @@
+/* eslint-disable no-unused-vars */
 import { Link } from "react-router-dom";
 import Button from "../Shared/Button/Button";
 import Cover from "../Shared/Cover/Cover";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import useTrainer from "../../Hooks/useTrainer";
 
 const Trainer = () => {
-    const axiosPublic = useAxiosPublic()
-    const [TrainerData, setTrainerData] = useState([])
-    const { isPending, data  } = useQuery({
-        queryKey: ['trainerData'],
-        queryFn: async () => {
-            const res = await axiosPublic.get('/trainer');
-            setTrainerData(res.data)
-            return res.data;
-        }
-    })
+    const [data, isPending] = useTrainer()
     return (
         <div>
             <Cover title={'Trainer'} />
@@ -41,8 +34,8 @@ const Trainer = () => {
                             :
                             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
                                 {
-                                    TrainerData  &&
-                                    TrainerData?.map(trainer => <div key={trainer._id}>
+                                    data &&
+                                    data?.map(trainer => <div key={trainer._id}>
                                         <div className="w-[300px] h-full rounded-lg shadow-lg">
                                             <div className=" h-[500px] absolute opacity-0 hover:opacity-100 ease-out duration-300 ">
                                                 <div className="grid grid-cols-2 gap-4 p-4 w-[300px] h-[300px] bg-black bg-opacity-50">

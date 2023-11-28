@@ -5,6 +5,7 @@ import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { MdDashboard } from "react-icons/md";
 import { IoMdHome } from "react-icons/io";
 import { MdOutlineReviews } from "react-icons/md";
+import { BiAddToQueue } from "react-icons/bi";
 import './Dashboard.css'
 import { IoLogOut } from "react-icons/io5";
 import { useContext } from "react";
@@ -60,6 +61,16 @@ const DashBoard = () => {
                         <div className="flex items-center lg:gap-4 gap-1">
                                 <AiFillReconciliation size={25} />
                                 <p>Be a Trainer</p>
+                            </div>
+                        </NavLink>
+                        <NavLink
+                            to={`/dashboard/addForum`}
+                            className={({ isActive, isPending }) =>
+                            isActive ? "active Shared_Color py-2 pl-6 w-[20vw] rounded-lg text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[20vw]  text-white"}
+                    >
+                        <div className="flex items-center lg:gap-4 gap-1">
+                                <BiAddToQueue size={25} />
+                                <p>Add Forum</p>
                             </div>
                         </NavLink>
                         <NavLink

@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    font-family: 'Lato', sans-serif;
+}
+.tesTimonial{
+    font-family: 'Borel', cursive;
+}
 .Shared_Color {
     background-color: #c91b1b;
     color: white;
@@ -18,6 +24,7 @@
 .shared_color{
     color: #f3b310;
 }
+
 
 @media screen and (max-width: 768px) {
     .shared_Btn {

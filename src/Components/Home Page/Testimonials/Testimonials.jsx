@@ -98,7 +98,7 @@ const Testimonials = () => {
                                     <Rating color="red-500" defaultValue={review.rating} readOnly />
                                 </div>
                                 <div className="-w-[250px] md:w-full">
-                                    <p className="text-xs md:text-base">{review.review?.slice(0, 300)}</p>
+                                    <p className="text-xs md:text-base tesTimonial">{review.review?.slice(0, 300)}</p>
                                 </div>
                             </div>
                         </SwiperSlide>

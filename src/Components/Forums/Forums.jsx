@@ -30,7 +30,7 @@ const Forums = () => {
                                     <div className="w-[300px] shadow-lg ">
                                         <img className="w-[300px] h-[200px] rounded-t-lg" src={post.postImage} alt="" />
                                         <div className="p-2 border rounded-b-lg bg-neutral-content">
-                                            <div className="">
+                                            <div className="h-[150px]">
                                                 <div className="flex justify-between items-start">
                                                     <div className="flex gap-2 items-center mb-2">
                                                         <FaTag />

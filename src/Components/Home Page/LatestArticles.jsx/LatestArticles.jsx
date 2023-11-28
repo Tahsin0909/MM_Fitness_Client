@@ -42,7 +42,7 @@ const LatestArticles = () => {
                                                 <p className=" font-semibold hover:underline">{post.title.slice(0, 50)}</p>
                                                 <p className=" text-sm mt-2">{post.content.slice(0, 120)}...</p>
                                             </div>
-                                            <Link>
+                                            <Link to={'/forum'}>
                                                 <Button text={'Know More'} />
                                             </Link>
                                         </div>

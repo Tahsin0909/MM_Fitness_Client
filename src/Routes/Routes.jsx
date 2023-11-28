@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
         element: <Trainer />
       },
       {
-        path: '/trainerDetails/:email',
+        path: '/trainerDetails',
         element: <TrainerDetail />
       },
     ]

@@ -1,18 +1,21 @@
 /* eslint-disable no-unused-vars */
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Cover from "../Shared/Cover/Cover";
 import Button from "../Shared/Button/Button";
 
 const TrainerDetail = () => {
-    const DetailOf = useParams()
-    const email = DetailOf.email
+    const location = useLocation()
+    const URL = new URLSearchParams(location.search)
+    const email = URL.get('email')
+    // console.log(location, URL, email);
+    // console.log(email);
     const axiosPublic = useAxiosPublic()
-    const { isPending,error,isFetching, isLoading, data } = useQuery({
+    const { isPending, data } = useQuery({
         queryKey: ['trainerDetails', email],
         queryFn: async () => {
-            const res = await axiosPublic.get(`/trainer/${email}`);
+            const res = await axiosPublic.get(`/trainerDetails?email=${email}`);
             return res.data;
         }
     })

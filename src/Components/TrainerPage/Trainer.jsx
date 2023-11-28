@@ -48,7 +48,7 @@ const Trainer = () => {
                                                             </div>
                                                         </div>)
                                                     }
-                                                    <Link to={`/trainerDetails/${trainer.email}`}>
+                                                    <Link to={`/trainerDetails?email=${trainer.email}`}>
                                                         <Button text={'Know More'} />
                                                     </Link>
                                                 </div>

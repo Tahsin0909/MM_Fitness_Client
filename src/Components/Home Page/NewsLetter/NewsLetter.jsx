@@ -1,11 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 
 const NewsLetter = () => {
     const { AuthUser } = useContext(AuthContext)
+    const [email, setEmail] = useState(null)
     const axiosPublic = useAxiosPublic()
+    useEffect(() =>{
+        if(AuthUser?.email){
+            setEmail(AuthUser?.email)
+        }
+        else{
+            setEmail('you@example.com')
+        }
+    },[AuthUser?.email])
     const handleSubscribe = e => {
         e.preventDefault()
         const email = e.target.email.value
@@ -43,7 +52,7 @@ const NewsLetter = () => {
 
                     <form onSubmit={(e) => handleSubscribe(e)}>
                         <div className="flex items-center justify-center gap-2">
-                            <input required name="email" type="text" defaultValue={`${AuthUser?.email || "guiest@gmail.com"}`} className="input input-bordered input-md w-full max-w-xs" />
+                            <input required name="email" type="text" defaultValue={email} className="input input-bordered input-md w-full max-w-xs" />
                             <input className="btn Shared_Color" type="submit" value="Subscribe" />
                         </div>
                     </form>

@@ -122,7 +122,7 @@ const FeaturedServices = () => {
                                             <span className="text-2xl font-bold">Fitness Classes</span>
                                         </div>
                                         <div className="group-hover:opacity-100 w-56 duration-500 opacity-0">
-                                            <Rating defaultValue={5} readOnly />
+                                            <Rating defaultValue={4} readOnly />
                                             <p>Packages: $200-$800/month</p>
                                         </div>
                                     </div>

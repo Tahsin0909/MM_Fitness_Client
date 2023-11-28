@@ -15,6 +15,7 @@ import AllTrainer from "../Components/DasBoard PAge/AllTrainer/Alltrainer";
 import TrainerDetail from "../Components/TrainerDetail/TrainerDetail";
 import Reviews from "../Components/DasBoard PAge/Reviews/Reviews";
 import AddForums from "../Components/DasBoard PAge/AddForums/AddForums";
+import Forums from "../Components/Forums/Forums";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: '/trainer',
         element: <Trainer />
+      },
+      {
+        path: '/forum',
+        element: <Forums />
       },
       {
         path: '/trainerDetails',

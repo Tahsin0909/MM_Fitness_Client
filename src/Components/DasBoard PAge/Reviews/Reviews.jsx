@@ -19,6 +19,7 @@ const Reviews = () => {
             image: AuthUser?.photoURL,
             rating: data.rating,
             comment: data.comment,
+            review: data.review,
         }
         axiosPublic.post('/review', reviewData)
         .then(res => {
@@ -53,17 +54,17 @@ const Reviews = () => {
                         <div className="flex  gap-6">
                             <div className="">
                                 <label className="label">
-                                    <span className="label-text">Comment</span>
+                                    <span className="label-text">Review</span>
                                 </label>
 
-                                <textarea placeholder="Comment" {...register("comment")} className="input text-start input-bordered w-[24vw] h-[20vh]"></textarea>
+                                <textarea placeholder="Review" {...register("review")} className="input text-start input-bordered w-[24vw] h-[20vh]"></textarea>
                             </div>
                             <div>
                                 <div className="">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span className="label-text">Comment</span>
                                     </label>
-                                    <input {...register("email")} type="email" defaultValue={AuthUser?.email} readOnly className="input input-bordered h-[7vh]" required />
+                                    <input {...register("comment")} type="comment"  placeholder="Comment" className="input input-bordered h-[7vh]" required />
                                 </div>
                                 <div className="">
                                     <label className="label">

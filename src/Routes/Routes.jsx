@@ -13,6 +13,7 @@ import DashBoardHome from "../LayOut/DashBoard/Home/DashBoardHome";
 import Applied_Trainer from "../Components/DasBoard PAge/Applied Trainer/Applied_Trainer";
 import AllTrainer from "../Components/DasBoard PAge/AllTrainer/Alltrainer";
 import TrainerDetail from "../Components/TrainerDetail/TrainerDetail";
+import Reviews from "../Components/DasBoard PAge/Reviews/Reviews";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path:'trainer',
         element:<AllTrainer/>
+      },
+      {
+        path:'myReviews',
+        element:<Reviews/>
       },
     ]
   },

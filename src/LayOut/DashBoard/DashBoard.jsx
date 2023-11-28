@@ -63,7 +63,7 @@ const DashBoard = () => {
                             </div>
                         </NavLink>
                         <NavLink
-                            to={`/dashboard/beTrainer`}
+                            to={`/dashboard/myReviews`}
                             className={({ isActive, isPending }) =>
                             isActive ? "active Shared_Color py-2 pl-6 w-[20vw] rounded-lg text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[20vw]  text-white"}
                     >

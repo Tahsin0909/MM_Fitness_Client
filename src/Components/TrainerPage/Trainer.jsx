@@ -20,16 +20,16 @@ const Trainer = () => {
                 </div>
                 <div className="flex justify-center items-center">
                     {
-                        isPending ? <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
-                            <div className="skeleton  animate-pulse lg:w-[450px] w-[300px] h-[300px]"></div>
+                        isPending ? <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
+                            <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>
                         </div>
                             :
                             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">

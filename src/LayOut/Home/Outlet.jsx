@@ -1,3 +1,4 @@
+import AboutUS from "../../Components/Home Page/AboutUs/AboutUS";
 import Banner from "../../Components/Home Page/Banner/Banner";
 import FeaturedClasses from "../../Components/Home Page/FeaturedClass/FeaturedClasses";
 import FeaturedServices from "../../Components/Home Page/FeaturedServices/FeaturedServices";
@@ -15,6 +16,7 @@ const OutLet = () => {
                 <Testimonials/>
                 <LatestArticles/>
                 <Team />
+                <AboutUS/>
                 <FeaturedClasses/>
                 <NewsLetter />
             </div>

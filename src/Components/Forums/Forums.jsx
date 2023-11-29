@@ -11,14 +11,27 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 const Forums = () => {
     const { AuthUser } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
-    console.log(AuthUser?.email);
-    const [data, isPending , refetch] = useForums()
+    // console.log(AuthUser?.email);
+    const [data, isPending, refetch] = useForums()
     const handleLike = (id) => {
         console.log(id, typeof (AuthUser?.email));
         const likedData = { email: AuthUser?.email }
         axiosPublic.put(`/LikeForums/${id}`, likedData)
-            .then(res => console.log(res.data))
-            refetch()
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch()
+                }
+            })
+    }
+    const handleDisLike = (id) => {
+        console.log(id, typeof (AuthUser?.email));
+        const dislikedData = { email: AuthUser?.email }
+        axiosPublic.put(`/disLikeForums/${id}`, dislikedData)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch()
+                }
+            })
     }
     return (
         <div>
@@ -38,7 +51,7 @@ const Forums = () => {
                     </div>
                         :
                         <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6">
-                            {AuthUser &&
+                            {
                                 data.map(post => <div key={post._id}>
                                     <div className="w-[300px] shadow-lg ">
                                         <img className="w-[300px] h-[200px] rounded-t-lg" src={post.postImage} alt="" />
@@ -57,52 +70,60 @@ const Forums = () => {
                                                 <p className=" font-semibold hover:underline">{post.title.slice(0, 50)}</p>
                                                 <p className=" text-sm mt-2">{post.content.slice(0, 120)}...</p>
                                             </div>
-                                            <div className="flex items-center justify-between mt-4">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="flex items-center gap-1">
+                                            {
+                                                AuthUser && <div className="flex items-center justify-between mt-4">
+                                                    <div className="flex items-center gap-4">
                                                         {AuthUser && (
                                                             <>
                                                                 {post.likes.some(like => like.email === AuthUser.email) ? (
-                                                                    <AiFillLike
-                                                                        onClick={() => handleLike(post._id)}
-                                                                        size={20}
-                                                                        className="hover:scale-125 duration-300 text-blue-600"
-                                                                    />
+                                                                    <div className="flex items-center gap-1">
+                                                                        <AiFillLike
+                                                                            size={20}
+                                                                            className="hover:scale-125 duration-300 text-blue-600"
+                                                                        />
+                                                                        <p>{post?.likes.length}</p>
+                                                                    </div>
+
                                                                 ) : (
-                                                                    <AiFillLike
-                                                                        onClick={() => handleLike(post._id)}
-                                                                        size={20}
-                                                                        className="hover:scale-125 duration-300"
-                                                                    />
+                                                                    <div className="flex items-center gap-1">
+                                                                        <AiFillLike
+                                                                            onClick={() => handleLike(post._id)}
+                                                                            size={20}
+                                                                            className="hover:scale-125 duration-300"
+                                                                        />
+                                                                        <p>{post?.likes.length}</p>
+                                                                    </div>
                                                                 )}
                                                             </>
                                                         )}
-                                                        <p>{post?.likes.length}</p>
-                                                    </div>
-                                                    <div className="flex items-center gap-1">
                                                         {AuthUser && (
                                                             <>
                                                                 {post.dislikes.some(like => like.email === AuthUser.email) ? (
-                                                                    <AiFillDislike
-                                                                        onClick={() => handleLike(post._id)}
-                                                                        size={20}
-                                                                        className="hover:scale-125 duration-300 text-blue-600"
-                                                                    />
+                                                                    <div className="flex items-center gap-1">
+                                                                        <AiFillDislike
+                                                                            size={20}
+                                                                            className="hover:scale-125 duration-300 text-blue-600"
+                                                                        />
+                                                                        <p>{post?.dislikes.length}</p>
+                                                                    </div>
+
                                                                 ) : (
-                                                                    <AiFillDislike
-                                                                        onClick={() => handleLike(post._id)}
-                                                                        size={20}
-                                                                        className="hover:scale-125 duration-300"
-                                                                    />
+                                                                    <div className="flex items-center gap-1">
+                                                                        <AiFillDislike
+                                                                            onClick={() => handleDisLike(post._id)}
+                                                                            size={20}
+                                                                            className="hover:scale-125 duration-300"
+                                                                        />
+                                                                        <p>{post?.dislikes.length}</p>
+                                                                    </div>
                                                                 )}
                                                             </>
                                                         )}
-                                                        <p>{post?.dislikes.length}</p>
+                                                        <IoMdShare size={20} className="hover:scale-125 duration-300" />
                                                     </div>
-                                                    <IoMdShare size={20} className="hover:scale-125 duration-300" />
+                                                    <MdBookmarkAdd size={20} className="hover:scale-125 duration-300" />
                                                 </div>
-                                                <MdBookmarkAdd size={20} className="hover:scale-125 duration-300" />
-                                            </div>
+                                            }
                                         </div>
                                     </div>
                                 </div>)

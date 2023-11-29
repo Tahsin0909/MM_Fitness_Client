@@ -3,12 +3,14 @@ import useForums from "../../../Hooks/useForums";
 import { FaTag } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "../../Shared/Button/Button";
+import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 
 const LatestArticles = () => {
     const [data, isPending] = useForums()
     return (
         <div>
-            <div className="flex justify-center items-center mb-10">
+            <SectionTitle title={'LAtest Article'} subtitle={ 'Article posted by our trainer' }/>
+            <div className="flex justify-center items-center mb-20">
                 {
                     isPending ? <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
                         <div className="skeleton  animate-pulse  w-[300px] h-[500px]"></div>

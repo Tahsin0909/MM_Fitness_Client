@@ -20,6 +20,7 @@ const TrainerDetail = () => {
         }
     })
 
+
     return (
         <div>
             <Cover title={'Trainer Details'} />

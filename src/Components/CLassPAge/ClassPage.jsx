@@ -8,18 +8,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Rating } from '@mui/material';
 import { Navigation, Virtual, EffectCreative } from 'swiper/modules';
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { useState } from "react";
+import { useEffect } from "react";
+import ScheduleTab from "../Shared/ScheduleTab/ScheduleTab";
 const ClassPage = () => {
+    const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const [data, isPending, refetch] = useClass()
     console.log(data);
-    // trainerEmail: AuthUser?.email,
-    // trainerName: AuthUser?.displayName,
-    // trainerImage: AuthUser?.photoURL,
-    // classTitle: data.classTitle ,
-    // category: data.category ,
-    // details: data.details ,
-    // packages: data.packages ,
-    // joinMember: [],
-    // schedule: { day: data.day  ,time: data.time  },
+    const Monday = data?.filter(items => items.schedule.day === 'Monday')
+    const Tuesday = data?.filter(items => items.schedule.day === 'Tuesday')
+    const Wednesday = data?.filter(items => items.schedule.day === 'Wednesday')
+    const Thursday = data?.filter(items => items.schedule.day === 'Thursday')
+    const Friday = data?.filter(items => items.schedule.day === 'Friday')
+    const Saturday = data?.filter(items => items.schedule.day === 'Saturday')
+    const Sunday = data?.filter(items => items.schedule.day === 'Sunday')
+
     return (
         <div>
             <Cover title={'Trainer CLasses'} />
@@ -69,15 +72,31 @@ const ClassPage = () => {
                 <div>
                     <Tabs>
                         <TabList>
-                            <Tab>Title 1</Tab>
-                            <Tab>Title 2</Tab>
+                            {
+                                week.map((data, idx) => <Tab key={idx}>{data}</Tab> )
+                            }
                         </TabList>
 
                         <TabPanel>
-                            <h2>Any content 1</h2>
+                            <ScheduleTab schedule={Monday}/>
                         </TabPanel>
                         <TabPanel>
-                            <h2>Any content 2</h2>
+                            <ScheduleTab schedule={Tuesday}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ScheduleTab schedule={Wednesday}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ScheduleTab schedule={Thursday}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ScheduleTab schedule={Friday}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ScheduleTab schedule={Saturday}/>
+                        </TabPanel>
+                        <TabPanel>
+                            <ScheduleTab schedule={Sunday}/>
                         </TabPanel>
                     </Tabs>
                 </div>

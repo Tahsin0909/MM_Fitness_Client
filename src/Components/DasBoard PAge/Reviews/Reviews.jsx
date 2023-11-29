@@ -64,7 +64,7 @@ const Reviews = () => {
                                     <label className="label">
                                         <span className="label-text">Comment</span>
                                     </label>
-                                    <input {...register("comment")} type="comment"  placeholder="Comment" className="input input-bordered h-[7vh]" required />
+                                    <input {...register("comment")} type="text"  placeholder="Comment" className="input input-bordered h-[7vh]" required />
                                 </div>
                                 <div className="">
                                     <label className="label">

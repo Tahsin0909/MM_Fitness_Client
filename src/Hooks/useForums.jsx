@@ -3,14 +3,14 @@ import { useQuery } from '@tanstack/react-query';
 
 const useForums = () => {
     const axiosPublic = useAxiosPublic()
-    const { isPending, data } = useQuery({
+    const { isPending, data, refetch } = useQuery({
         queryKey: ['forums'],
         queryFn: async () => {
             const res = await axiosPublic.get('/forums');
             return res.data;
         }
     })
-    return [data, isPending]
+    return [data, isPending , refetch]
 };
 
 export default useForums;

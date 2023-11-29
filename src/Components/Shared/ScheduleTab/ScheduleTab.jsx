@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
 
 const ScheduleTab = ({ schedule }) => {
-    if (schedule.length > 0) {
+    if (schedule?.length > 0) {
         return <div className="overflow-y-scroll h-[50vh]">
             <table className="table  w-full">
                 <thead>
                     <tr className="">
-                        <th>Class</th>
-                        <th>Time</th>
+                        <th className="text-[#c91b1b]">Class</th>
+                        <th className="text-[#c91b1b]">Time</th>
                     </tr>
                 </thead>
                     <tbody>
@@ -26,7 +26,7 @@ const ScheduleTab = ({ schedule }) => {
             </table>
         </div>
     }
-    return <p className="h-[40vh]">NO DATA FOUND</p>
+    return <p className="h-[50vh]">NO DATA FOUND</p>
 
 
 };

@@ -5,11 +5,8 @@ import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 import 'react-tabs/style/react-tabs.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Rating } from '@mui/material';
 import { Navigation, Virtual, EffectCreative } from 'swiper/modules';
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
-import { useState } from "react";
-import { useEffect } from "react";
 import ScheduleTab from "../Shared/ScheduleTab/ScheduleTab";
 const ClassPage = () => {
     const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -24,13 +21,13 @@ const ClassPage = () => {
     const Sunday = data?.filter(items => items.schedule.day === 'Sunday')
 
     return (
-        <div>
+        <div className="md:mb-20 mb-6">
             <Cover title={'Trainer CLasses'} />
-            <div className="flex justify-center items-center gap-8">
+            <div className="flex flex-col gap-20 md:gap-10 lg:gap-6 lg:flex-row justify-center items-center ">
                 <Swiper
                     navigation={true}
                     modules={[Navigation, Virtual, EffectCreative]}
-                    className="mySwiper md:w-[750px]"
+                    className="mySwiper md:w-[700px] w-[300px] "
                     Virtual
                     effect={'creative'}
                     creativeEffect={{
@@ -46,7 +43,7 @@ const ClassPage = () => {
                 >
                     {
                         data?.map((classData, idx) => <SwiperSlide className="" key={classData._id} virtualIndex={idx}>
-                            <div className="md:w-[650px] md:pl-28">
+                            <div className="md:w-[650px] w-fit md:pl-28">
                                 <div className="flex items-center justify-center md:justify-start gap-2">
                                     <img className="w-10 md:w-16 rounded-full" src={classData.trainerImage} alt="" />
                                     <div>
@@ -56,7 +53,7 @@ const ClassPage = () => {
                                 </div>
                                 <div className="flex flex-col md:flex-row  ml-10 md:ml-0 md:items-center md:gap-4  font-semibold">
                                     <p className="md:text-lg shared_text_color">{classData.classTitle}</p>
-                                    <p className="border px-2 p-1 rounded-md Shared_Color">{classData.packages}</p>
+                                    <p className="border px-2 p-1 w-fit rounded-md Shared_Color">{classData.packages}</p>
                                 </div>
                                 <p className="hidden md:block text-sm px-3 py-1 rounded-md text-white border w-fit bg-slate-500">{classData.category}</p>
                                 <p className="hidden md:block mt-4">{classData.details.slice(0, 250)}</p>
@@ -69,7 +66,7 @@ const ClassPage = () => {
                         )
                     }
                 </Swiper>
-                <div>
+                <div className=" md:w-[650px] mx-auto shadow-lg">
                     <Tabs>
                         <TabList>
                             {

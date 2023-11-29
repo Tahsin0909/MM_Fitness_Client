@@ -95,7 +95,7 @@ const Testimonials = () => {
                                     </div>
                                 </div>
                                 <div className="py-2 ">
-                                    <Rating color="red-500" defaultValue={review.rating} readOnly />
+                                    <Rating color="red-500" defaultValue={parseInt(review.rating)} readOnly />
                                 </div>
                                 <div className="-w-[250px] md:w-full">
                                     <p className="text-xs md:text-base tesTimonial">{review.review?.slice(0, 300)}</p>

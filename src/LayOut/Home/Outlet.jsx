@@ -13,8 +13,8 @@ const OutLet = () => {
                 <FeaturedServices/>
                 <Testimonials/>
                 <LatestArticles/>
-                <NewsLetter />
                 <Team />
+                <NewsLetter />
             </div>
         </div>
     );

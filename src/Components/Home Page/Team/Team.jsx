@@ -6,7 +6,7 @@ const Team = () => {
     const [data, isPending] = useTrainer()
     return (
         <div className="mb-20">
-            <SectionTitle title={"Our Team"} subtitle={'We have the Best Team on this Planet'} />
+            <SectionTitle title={"Our Dedicated Team"} subtitle={'We have the Best Team on this Planet'} />
             {
                 isPending ? <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4">
                     <div className="flex flex-col gap-4 w-[280px] md:w-[350px] ">

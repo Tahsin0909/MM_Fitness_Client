@@ -25,7 +25,7 @@ const FeaturedServices = () => {
                         },
                         769: {
                             slidesPerView: 4,
-                            spaceBetween: 30
+                            spaceBetween: 20
                         }
                     }}
                     pagination={{

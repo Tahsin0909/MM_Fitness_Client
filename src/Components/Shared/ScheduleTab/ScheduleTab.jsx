@@ -26,7 +26,7 @@ const ScheduleTab = ({ schedule }) => {
             </table>
         </div>
     }
-    return <p className="h-[50vh]">NO DATA FOUND</p>
+    return <div className="flex justify-center items-center h-[50vh] "><p className="">NO DATA FOUND</p></div>
 
 
 };

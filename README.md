@@ -23,3 +23,9 @@ This project includes the following features:
    - This feature allows for real-time feedback to admin, enhancing the overall management system  on the website.
 3. **Loading State**
    - In loading state during fetching Data The website incorporates loading sate with skeleton to enhancing the overall user experience on the website.
+4. **Up Vote And Down VOte in Forums**
+   - In this Website a upVote and Down vote feature include in forums page articles.
+   - User can Like and Dislike Any of post. so that admin and Trainer USe it later for improvement.
+5. **Real time Active Student Who joined The Class**
+   - In Class Section when a user joined any class the active join user of particular class is shown in real time.
+   - User can get Knowledge and Understand Other User and The Ultimate Importance Of the Class.

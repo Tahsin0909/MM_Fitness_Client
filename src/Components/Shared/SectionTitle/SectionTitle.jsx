@@ -2,7 +2,7 @@
 
 const SectionTitle = ({ title, subtitle }) => {
     return (
-        <div className="flex flex-col justify-start mt-20 mb-6 shadow-lg ">
+        <div className="flex flex-col justify-start  mb-6 shadow-lg ">
             <div className="text-start px-4  w-full">
                 <p className="skeleton w-fit bg-[#c91b1b] bg-clip-text text-transparent  uppercase text-4xl font-semibold">{title}</p>
                 <p className="text-gray-400">{subtitle}</p>

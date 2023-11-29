@@ -1,4 +1,5 @@
 import Banner from "../../Components/Home Page/Banner/Banner";
+import FeaturedClasses from "../../Components/Home Page/FeaturedClass/FeaturedClasses";
 import FeaturedServices from "../../Components/Home Page/FeaturedServices/FeaturedServices";
 import LatestArticles from "../../Components/Home Page/LatestArticles.jsx/LatestArticles";
 import NewsLetter from "../../Components/Home Page/NewsLetter/NewsLetter";
@@ -14,6 +15,7 @@ const OutLet = () => {
                 <Testimonials/>
                 <LatestArticles/>
                 <Team />
+                <FeaturedClasses/>
                 <NewsLetter />
             </div>
         </div>

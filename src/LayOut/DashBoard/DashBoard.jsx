@@ -1,5 +1,5 @@
 import {  NavLink } from "react-router-dom";
-import { FaFileAlt } from "react-icons/fa";
+import { FaChalkboardTeacher, FaFileAlt } from "react-icons/fa";
 import { AiFillReconciliation } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { MdDashboard } from "react-icons/md";
@@ -71,6 +71,16 @@ const DashBoard = () => {
                         <div className="flex items-center lg:gap-4 gap-1">
                                 <BiAddToQueue size={25} />
                                 <p>Add Forum</p>
+                            </div>
+                        </NavLink>
+                        <NavLink
+                            to={`/dashboard/addClass`}
+                            className={({ isActive, isPending }) =>
+                            isActive ? "active Shared_Color py-2 pl-6 w-[20vw] rounded-lg text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[20vw]  text-white"}
+                    >
+                        <div className="flex items-center lg:gap-4 gap-1">
+                                <FaChalkboardTeacher size={25} />
+                                <p>Add New CLass</p>
                             </div>
                         </NavLink>
                         <NavLink

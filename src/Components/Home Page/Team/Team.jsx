@@ -5,7 +5,7 @@ import useTrainer from "../../../Hooks/useTrainer";
 const Team = () => {
     const [data, isPending] = useTrainer()
     return (
-        <div className="mb-20">
+        <div className="my-20">
             <SectionTitle title={"Our Dedicated Team"} subtitle={'We have the Best Team on this Planet'} />
             {
                 isPending ? <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 lg:gap-4">

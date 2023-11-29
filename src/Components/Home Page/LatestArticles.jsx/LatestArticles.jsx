@@ -8,7 +8,7 @@ import SectionTitle from "../../Shared/SectionTitle/SectionTitle";
 const LatestArticles = () => {
     const [data, isPending] = useForums()
     return (
-        <div>
+        <div className="lg:my-20">
             <SectionTitle title={'LAtest Article'} subtitle={ 'Article posted by our trainer' }/>
             <div className="flex justify-center items-center mb-20">
                 {

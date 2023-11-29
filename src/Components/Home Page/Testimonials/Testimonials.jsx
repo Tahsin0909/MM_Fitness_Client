@@ -37,7 +37,7 @@ const Testimonials = () => {
         return <p>Loading</p>
     }
     return (
-        <div className="max-w-screen-xl flex flex-col-reverse md:flex-row  mx-auto my-20 shadow-lg p-6 rounded-lg">
+        <div className="max-w-screen-xl flex flex-col-reverse md:flex-row  mx-auto my-20 mb-20 shadow-lg p-6 rounded-lg">
             <div >
                 <div>
                     <h1 className="md:text-5xl text-xl font-semibold md:max-w-xl">What Our Happy Clients Say About us</h1>

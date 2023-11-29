@@ -41,7 +41,7 @@ const NewsLetter = () => {
             })
     }
     return (
-        <div>
+        <div className="md:my-20">
             <div className="hero min-h-[40vh]" style={{ backgroundImage: 'url(https://mostneededinfo.com/wp-content/uploads/2023/05/toko-1024x576.jpg)' }}>
                 <div className="hero-overlay bg-opacity-50"></div>
                 <div className="hero-content text-center  flex flex-col">

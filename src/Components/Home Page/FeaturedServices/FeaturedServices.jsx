@@ -12,7 +12,7 @@ import { Rating } from '@mui/material';
 
 const FeaturedServices = () => {
     return (
-        <div className='mb-10 md:my-20'>
+        <div className='mb-10 md:my-40'>
             <SectionTitle title={'Our Featured Services'} subtitle={'The Services We provide At low Cost '} />
             <div className='mt-4'>
                 <Swiper

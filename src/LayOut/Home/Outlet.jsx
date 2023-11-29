@@ -11,14 +11,14 @@ const OutLet = () => {
     return (
         <div className="">
             <Banner />
-            <div className="lg:mx-6 mx-2">
+            <div className="lg:mx-6 mx-2 md:-translate-y-28">
                 <FeaturedServices/>
-                <Testimonials/>
-                <LatestArticles/>
-                <Team />
                 <AboutUS/>
                 <FeaturedClasses/>
                 <NewsLetter />
+                <Team />
+                <Testimonials/>
+                <LatestArticles/>
             </div>
         </div>
     );

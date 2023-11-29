@@ -13,7 +13,7 @@ const AboutUS = () => {
         { name: 'Guidances of Expert', value: 'Unlimited' },
     ]
     return (
-        <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+        <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32 mb-20">
             <img
                 src="https://i.ibb.co/4tKRdb2/young-fitness-man-studio-1.jpg"
                 alt=""

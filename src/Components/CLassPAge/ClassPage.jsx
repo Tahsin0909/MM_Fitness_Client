@@ -91,7 +91,7 @@ const ClassPage = () => {
                         {
                             data?.map((classData, idx) => <SwiperSlide className="" key={classData._id} virtualIndex={idx}>
                                 <div className="md:w-[650px] w-fit md:pl-28 ">
-                                    <div className="flex justify-between items-center">
+                                    <div className="flex flex-col md:flex-row justify-between items-center">
                                         <div className="flex items-center justify-center md:justify-start gap-2">
                                             <img className="w-10 md:w-16 rounded-full" src={classData.trainerImage} alt="" />
                                             <div>

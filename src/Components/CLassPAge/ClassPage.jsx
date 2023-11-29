@@ -100,7 +100,7 @@ const ClassPage = () => {
                                             </div>
                                         </div>
                                         <div>
-                                            <p>Active Student: {classData.joinMember.length}</p>
+                                            <p>Join Member: {classData.joinMember.length}</p>
                                         </div>
                                     </div>
                                     <div className="flex flex-col md:flex-row  ml-10 md:ml-0 md:items-center md:gap-4  font-semibold">

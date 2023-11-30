@@ -19,6 +19,7 @@ import Forums from "../Components/Forums/Forums";
 import NewClass from "../Components/DasBoard PAge/NewClass/NewClass";
 import ClassPage from "../Components/CLassPAge/ClassPage";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import AllSubscriber from "../Components/DasBoard PAge/AllSubscribers/AllSubscriber";
 
 export const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ export const router = createBrowserRouter([
       {
         path:'addClass',
         element:<NewClass/>
+      },
+      {
+        path:'subscriber',
+        element:<AllSubscriber/>
       },
     ]
   },

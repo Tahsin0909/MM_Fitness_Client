@@ -32,33 +32,267 @@ const AllTrainer = () => {
                             {/* row 1 */}
                             {
                                 isPending ? (<>
-                                    <td>
-                                        <div className="flex gap-4 items-center">
-                                            <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
-                                            <div className="flex flex-col gap-4">
-                                                <div className="skeleton h-4 w-10"></div>
-                                                <div className="skeleton h-4 w-6"></div>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="skeleton h-14 w-full"></div>
-                                    </td>
-                                    <td className="grid grid-cols-2 gap-2">
-                                        <div className="skeleton h-4 w-full"></div>
-                                        <div className="skeleton h-4 w-full"></div>
-                                        <div className="skeleton h-4 w-full"></div>
-                                        <div className="skeleton h-4 w-full"></div>
-                                    </td>
-                                    <td>
-                                        <div className="skeleton h-8"></div>
-                                    </td>
-                                    <td>
-                                        <div className="skeleton h-8 "></div>
-                                    </td>
-                                    <td>
-                                        <div className="skeleton h-8 "></div>
-                                    </td>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div className="flex gap-4 items-center">
+                                                <div className="skeleton w-16 h-16 rounded-full shrink-0"></div>
+                                                <div className="flex flex-col gap-4">
+                                                    <div className="skeleton h-4 w-10"></div>
+                                                    <div className="skeleton h-4 w-6"></div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-14 w-full"></div>
+                                        </td>
+                                        <td className="grid grid-cols-2 gap-2">
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                            <div className="skeleton h-4 w-full"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8"></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                        <td>
+                                            <div className="skeleton h-8 "></div>
+                                        </td>
+                                    </tr>
                                 </>
                                 )
                                     :

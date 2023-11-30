@@ -11,6 +11,7 @@ import { IoLogOut } from "react-icons/io5";
 import { useContext } from "react";
 import { AuthContext } from "../../Components/ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
+import { FaUsers } from "react-icons/fa6";
 
 
 const DashBoard = () => {
@@ -31,6 +32,16 @@ const DashBoard = () => {
                                 <p>DashBoard</p>
                             </div>
 
+                        </NavLink>
+                        <NavLink
+                            to={`/dashboard/subscriber`}
+                            className={({ isActive, isPending }) =>
+                                isActive ? "active Shared_Color py-2 pl-6 w-[20vw] lg:text-base text-sm rounded-lg text-white font-semibold " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 pl-6 w-[20vw]  text-white lg:text-base text-sm"}
+                        >
+                            <div className="flex items-center lg:gap-4 gap-1">
+                                <FaUsers size={20} />
+                                <p>All Subscriber</p>
+                            </div>
                         </NavLink>
                         <NavLink
                             to={`/dashboard/appliedTrainer`}

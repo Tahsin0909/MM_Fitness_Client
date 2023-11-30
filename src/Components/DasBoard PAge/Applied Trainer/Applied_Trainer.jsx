@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import Button from "../../Shared/Button/Button";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const Applied_Trainer = () => {
     const axiosSecure = useAxiosSecure()
@@ -15,13 +16,13 @@ const Applied_Trainer = () => {
     })
     // console.log(data);
 
-    
+
     //Date When trainer join
     const currentDate = new Date()
-//     const year = currentDate.getFullYear()
+    //     const year = currentDate.getFullYear()
     const month = currentDate.getUTCMonth()
-//     const date = currentDate.getDate()
-// console.log(month);
+    //     const date = currentDate.getDate()
+    // console.log(month);
 
     const handleHire = (applyData) => {
         // console.log(applyData)
@@ -80,6 +81,9 @@ const Applied_Trainer = () => {
 
     return (
         <div className=" px-10 py-4   w-full">
+            <Helmet>
+                <title>Mm Dashboard | Application</title>
+            </Helmet>
             <div >
                 <p className="text-xl font-semibold  uppercase mb-4">Total Application : {data?.length} </p>
                 {

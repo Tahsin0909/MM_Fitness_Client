@@ -4,6 +4,7 @@ import { AuthContext } from "../../ContextApi/ContextApi";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import useUser from "../../../Hooks/useUser";
+import { Helmet } from "react-helmet";
 
 
 
@@ -25,7 +26,7 @@ const AddForums = () => {
             email: AuthUser?.email,
             name: AuthUser?.displayName,
             authorImage: AuthUser?.photoURL,
-            postImage:data.image,
+            postImage: data.image,
             category: data.category,
             title: data.title,
             content: data.content,
@@ -60,6 +61,9 @@ const AddForums = () => {
     }
     return (
         <div className="py-10 flex justify-center items-center h-screen">
+            <Helmet>
+                <title>Mm Dashboard | Add Forums</title>
+            </Helmet>
             <div className=" w-fit p-4 bg-neutral-content rounded-md">
                 <p className="text-xl font-semibold">We value your review the most:</p>
                 <div className="w-[40vw]">

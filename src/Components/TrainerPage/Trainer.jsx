@@ -6,11 +6,15 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import useTrainer from "../../Hooks/useTrainer";
+import { Helmet } from "react-helmet";
 
 const Trainer = () => {
     const [data, isPending] = useTrainer()
     return (
         <div>
+            <Helmet>
+                <title>Meta Motion | Trainer</title>
+            </Helmet>
             <Cover title={'Trainer'} />
             <div className="-translate-y-16 lg:mx-6">
                 <div className="flex justify-end" >

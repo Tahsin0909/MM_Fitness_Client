@@ -4,6 +4,7 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import Cover from "../Shared/Cover/Cover";
 import Button from "../Shared/Button/Button";
+import { Helmet } from "react-helmet";
 
 const TrainerDetail = () => {
     const location = useLocation()
@@ -23,6 +24,9 @@ const TrainerDetail = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Meta Motion | Trainer Details</title>
+            </Helmet>
             <Cover title={'Trainer Details'} />
             {
                 isPending ?

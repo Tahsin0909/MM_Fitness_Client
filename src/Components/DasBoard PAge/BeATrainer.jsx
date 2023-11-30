@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../ContextApi/ContextApi";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const BeATrainer = () => {
     const axiosPublic = useAxiosPublic()
@@ -89,6 +90,9 @@ const BeATrainer = () => {
 
     return (
         <div className="flex justify-center items-center  h-screen">
+            <Helmet>
+                <title>Mm Dashboard | Be a Trainer</title>
+            </Helmet>
             <div className="lg:p-10 md:p-4 rounded-lg bg-neutral-content">
                 <h1 className="text-start mb-4 text-2xl font-bold">Apply Now:</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>

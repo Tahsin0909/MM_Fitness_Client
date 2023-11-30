@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import AboutUS from "../../Components/Home Page/AboutUs/AboutUS";
 import Banner from "../../Components/Home Page/Banner/Banner";
 import FeaturedClasses from "../../Components/Home Page/FeaturedClass/FeaturedClasses";
@@ -10,15 +11,18 @@ import Testimonials from "../../Components/Home Page/Testimonials/Testimonials";
 const OutLet = () => {
     return (
         <div className="">
+            <Helmet>
+                <title>Meta Motion | Home</title>
+            </Helmet>
             <Banner />
             <div className="lg:mx-6 mx-2 md:-translate-y-28">
-                <FeaturedServices/>
-                <AboutUS/>
-                <FeaturedClasses/>
+                <FeaturedServices />
+                <AboutUS />
+                <FeaturedClasses />
                 <NewsLetter />
                 <Team />
-                <Testimonials/>
-                <LatestArticles/>
+                <Testimonials />
+                <LatestArticles />
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 const NewClass = () => {
     const { AuthUser } = useContext(AuthContext)
@@ -13,38 +14,41 @@ const NewClass = () => {
             trainerEmail: AuthUser?.email,
             trainerName: AuthUser?.displayName,
             trainerImage: AuthUser?.photoURL,
-            classTitle: data.classTitle ,
-            category: data.category ,
-            details: data.details ,
-            packages: data.packages ,
+            classTitle: data.classTitle,
+            category: data.category,
+            details: data.details,
+            packages: data.packages,
             joinMember: [],
-            schedule: { day: data.day  ,time: data.time  },
+            schedule: { day: data.day, time: data.time },
         }
         axiosPublic.post('/class', ClassData)
-        .then(res => {
-            if (res.data.insertedId) {
-                Swal.fire({
-                    title: "Successful",
-                    text: "Your Class Added SuccessFull",
-                    icon: "success",
-                    confirmButtonColor: "#c91b1b",
-                    confirmButtonText: 'DONE'
-                });
-                reset()
-            }
-            else {
-                Swal.fire({
-                    title: "oh!",
-                    text: "Some Error Occurred",
-                    icon: "error",
-                    confirmButtonColor: "#c91b1b",
-                    confirmButtonText: 'DONE'
-                });
-            }
-        })
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Successful",
+                        text: "Your Class Added SuccessFull",
+                        icon: "success",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                    reset()
+                }
+                else {
+                    Swal.fire({
+                        title: "oh!",
+                        text: "Some Error Occurred",
+                        icon: "error",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                }
+            })
     }
     return (
         <div>
+            <Helmet>
+                <title>Mm Dashboard | Add Class</title>
+            </Helmet>
             <div className="py-10 flex justify-center items-center h-screen">
                 <div className=" w-fit p-4 bg-neutral-content rounded-md">
                     <p className="text-xl font-semibold">We value your review the most:</p>

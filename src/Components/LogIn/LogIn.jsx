@@ -6,6 +6,7 @@ import SocialLogIn from "../Shared/Social  LogIn/SocialLogIn";
 import { AuthContext } from "../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 // import { useLocation, useNavigate } from "react-router-dom";
 
 
@@ -73,6 +74,9 @@ const LogIn = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Meta Motion | Log In</title>
+            </Helmet>
             <div className="-translate-y-20">
                 <div className="hero min-h-screen " style={{ backgroundImage: 'url(https://i.ibb.co/xMSG4f1/a3.jpg)' }}>
                     <div className="hero-overlay bg-opacity-40"></div>

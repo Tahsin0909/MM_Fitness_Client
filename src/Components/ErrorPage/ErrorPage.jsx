@@ -2,10 +2,14 @@
 import { Link } from 'react-router-dom';
 import './ErrorPAge.css'
 import Button from '../Shared/Button/Button';
+import { Helmet } from 'react-helmet';
 
-const ErrorPage = ({errorMessage}) => {
+const ErrorPage = ({ errorMessage }) => {
     return (
         <div>
+            <Helmet>
+                <title>404</title>
+            </Helmet>
             <section className="page_404">
                 <div className="container">
                     <div className="row">
@@ -25,7 +29,7 @@ const ErrorPage = ({errorMessage}) => {
                                     <p>{errorMessage}</p>
 
                                     <Link to={'/'}>
-                                        <Button text={"Go to Home"}/>
+                                        <Button text={"Go to Home"} />
                                     </Link>
                                 </div>
                             </div>

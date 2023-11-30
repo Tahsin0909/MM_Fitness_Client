@@ -1,6 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Cover from "../Shared/Cover/Cover";
+import { Helmet } from "react-helmet";
 
 let pageParams = 0
 const getImage = async () => {
@@ -34,6 +35,9 @@ const GAllery = () => {
 
     return (
         <div className="">
+            <Helmet>
+                <title>Meta Motion | Gallery</title>
+            </Helmet>
             <Cover title={'Gallery'} />
 
             <div className="h-full mx-6 flex justify-center items-center my-5">

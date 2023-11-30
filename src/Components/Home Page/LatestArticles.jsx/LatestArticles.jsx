@@ -41,7 +41,7 @@ const LatestArticles = () => {
                                                         <p className="text-sm">{post.dateTime}</p>
                                                     </div>
                                                 </div>
-                                                <p className=" font-semibold hover:underline">{post.title.slice(0, 50)}</p>
+                                                <p className=" font-semibold hover:underline">{post.title.slice(0, 50)} <span className="text-xs mx-4 bg-red-400 text-white font-extralight py-[2px] px-1">{post.role}</span></p>
                                                 <p className=" text-sm mt-2">{post.content.slice(0, 120)}...</p>
                                             </div>
                                             <Link to={'/forum'}>

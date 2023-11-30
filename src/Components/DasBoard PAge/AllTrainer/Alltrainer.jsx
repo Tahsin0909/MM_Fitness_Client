@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import useTrainer from "../../../Hooks/useTrainer";
 
 const AllTrainer = () => {
@@ -9,6 +10,9 @@ const AllTrainer = () => {
 
     return (
         <div className="ml-10 m-2">
+            <Helmet>
+                <title>Mm Dashboard | All Trainers</title>
+            </Helmet>
             <p className="text-xl font-semibold  uppercase mb-4">Total Trainer : {data?.length} </p>
             <div>
                 <div className="overflow-x-auto">

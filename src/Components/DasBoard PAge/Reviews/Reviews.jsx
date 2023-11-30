@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 
@@ -22,31 +23,34 @@ const Reviews = () => {
             review: data.review,
         }
         axiosPublic.post('/review', reviewData)
-        .then(res => {
-            if (res.data.insertedId) {
-                Swal.fire({
-                    title: "Successful",
-                    text: "Thanks For your review",
-                    icon: "success",
-                    confirmButtonColor: "#c91b1b",
-                    confirmButtonText: 'DONE'
-                });
-                reset()
-            }
-            else {
-                Swal.fire({
-                    title: "oh!",
-                    text: "Some Error Occurred",
-                    icon: "error",
-                    confirmButtonColor: "#c91b1b",
-                    confirmButtonText: 'DONE'
-                });
-            }
-        })
+            .then(res => {
+                if (res.data.insertedId) {
+                    Swal.fire({
+                        title: "Successful",
+                        text: "Thanks For your review",
+                        icon: "success",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                    reset()
+                }
+                else {
+                    Swal.fire({
+                        title: "oh!",
+                        text: "Some Error Occurred",
+                        icon: "error",
+                        confirmButtonColor: "#c91b1b",
+                        confirmButtonText: 'DONE'
+                    });
+                }
+            })
 
     }
     return (
         <div className="py-10 flex justify-center items-center h-screen">
+            <Helmet>
+                <title>Mm Dashboard | Review</title>
+            </Helmet>
             <div className=" w-fit p-4 bg-neutral-content rounded-md">
                 <p className="text-xl font-semibold">We value your review the most:</p>
                 <div className="w-[40vw]">
@@ -64,7 +68,7 @@ const Reviews = () => {
                                     <label className="label">
                                         <span className="label-text">Comment</span>
                                     </label>
-                                    <input {...register("comment")} type="text"  placeholder="Comment" className="input input-bordered h-[7vh]" required />
+                                    <input {...register("comment")} type="text" placeholder="Comment" className="input input-bordered h-[7vh]" required />
                                 </div>
                                 <div className="">
                                     <label className="label">

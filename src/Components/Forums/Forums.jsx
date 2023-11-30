@@ -8,6 +8,7 @@ import { FaTag } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../ContextApi/ContextApi";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import { Helmet } from "react-helmet";
 
 
 
@@ -41,6 +42,9 @@ const Forums = () => {
     }
     return (
         <div>
+            <Helmet>
+                <title>Meta Motion | Forums</title>
+            </Helmet>
             <Cover title={'Forums Article'} />
             <div className="flex justify-center items-center mb-10">
                 {

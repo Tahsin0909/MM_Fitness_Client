@@ -14,6 +14,7 @@ import { useContext } from "react";
 import { AuthContext } from "../ContextApi/ContextApi";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 const ClassPage = () => {
     const axiosPublic = useAxiosPublic()
     const { AuthUser } = useContext(AuthContext)
@@ -66,6 +67,9 @@ const ClassPage = () => {
     }
     return (
         <div className="md:mb-20 mb-6">
+            <Helmet>
+                <title>Meta Motion | Class</title>
+            </Helmet>
             <Cover title={'Trainer CLasses'} />
             <div className="flex flex-col gap-20 md:gap-10 lg:gap-6 lg:flex-row justify-center items-center ">
                 <div className="">

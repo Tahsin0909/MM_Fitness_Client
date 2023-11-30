@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 
 let pageParams = 0
 const getImage = async () => {
-    const res = await fetch(`http://localhost:5000/gallery?limit=10&offset=${pageParams}`)
+    const res = await fetch(`https://mm-serrver.vercel.app/gallery?limit=10&offset=${pageParams}`)
     const data = await res.json()
     return { data, prvOffset: pageParams }
 }

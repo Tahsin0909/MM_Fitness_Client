@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import useUser from "../../../Hooks/useUser";
 
 
 
@@ -10,7 +11,7 @@ const AddForums = () => {
     const { AuthUser } = useContext(AuthContext)
     const axiosPublic = useAxiosPublic()
     const { register, handleSubmit, reset } = useForm();
-
+    const [UserData] = useUser()
     //Date When post
     const currentDate = new Date()
     const year = currentDate.getFullYear()
@@ -28,6 +29,7 @@ const AddForums = () => {
             category: data.category,
             title: data.title,
             content: data.content,
+            role: UserData.role,
             dateTime: `${date}/${realMonth}/${year}`,
             likes: [],
             dislikes: []

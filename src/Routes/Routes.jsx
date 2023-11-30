@@ -18,11 +18,13 @@ import AddForums from "../Components/DasBoard PAge/AddForums/AddForums";
 import Forums from "../Components/Forums/Forums";
 import NewClass from "../Components/DasBoard PAge/NewClass/NewClass";
 import ClassPage from "../Components/CLassPAge/ClassPage";
+import ErrorPage from "../Components/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: '/',
@@ -61,6 +63,7 @@ export const router = createBrowserRouter([
   {
     path: 'dashboard',
     element: <DashBoardHome />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path:'beTrainer',

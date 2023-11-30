@@ -19,7 +19,6 @@ const ClassPage = () => {
     const { AuthUser } = useContext(AuthContext)
     const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     const [data, isPending, refetch] = useClass()
-    console.log(data);
     const Monday = data?.filter(items => items.schedule.day === 'Monday')
     const Tuesday = data?.filter(items => items.schedule.day === 'Tuesday')
     const Wednesday = data?.filter(items => items.schedule.day === 'Wednesday')
@@ -31,12 +30,11 @@ const ClassPage = () => {
     const navigate = useNavigate()
     const handleJoin = (id) => {
         const stdData = {
-            stdName: AuthUser.displayName,
-            stdEmail: AuthUser.email,
-            stdPhotoURL: AuthUser.photoURL,
+            stdName: AuthUser?.displayName,
+            stdEmail: AuthUser?.email,
+            stdPhotoURL: AuthUser?.photoURL,
 
         }
-        console.log(stdData)
         axiosPublic.put(`/class/${id}`, stdData)
             .then(res => {
                 if (!res.data) {
@@ -112,7 +110,7 @@ const ClassPage = () => {
                                     <div className="flex gap-4 flex-col md:flex-row md:items-center justify-between">
                                         <p className="ml-10 md:ml-0 border-[#c91b1b] font-semibold mt-4 border-b-2 border-l-2  w-fit px-2">Regular: {classData.schedule.day} {classData.schedule.time}</p>
                                         {
-                                            classData.joinMember.some(like => like.stdEmail === AuthUser.email) ?
+                                            classData.joinMember.some(like => like.stdEmail === AuthUser?.email) ?
                                                 <Button text={"Joined"} />
                                                 :
                                                 <Link onClick={() => handleJoin(classData._id)} className="ml-10 md:ml-0 ">

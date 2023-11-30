@@ -20,6 +20,7 @@ import NewClass from "../Components/DasBoard PAge/NewClass/NewClass";
 import ClassPage from "../Components/CLassPAge/ClassPage";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import AllSubscriber from "../Components/DasBoard PAge/AllSubscribers/AllSubscriber";
+import ManageMember from "../Components/DasBoard PAge/ManageMEmber/ManageMember";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ export const router = createBrowserRouter([
       {
         path:'subscriber',
         element:<AllSubscriber/>
+      },
+      {
+        path:'member',
+        element:<ManageMember/>
       },
     ]
   },

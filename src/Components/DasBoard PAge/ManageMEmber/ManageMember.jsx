@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";

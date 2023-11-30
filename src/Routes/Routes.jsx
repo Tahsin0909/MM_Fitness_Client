@@ -21,6 +21,7 @@ import ClassPage from "../Components/CLassPAge/ClassPage";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import AllSubscriber from "../Components/DasBoard PAge/AllSubscribers/AllSubscriber";
 import ManageMember from "../Components/DasBoard PAge/ManageMEmber/ManageMember";
+import BookedPage from "../Components/BookedPAge/BookedPage";
 
 export const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
       {
         path: '/class',
         element: <ClassPage />
+      },
+      {
+        path: '/booked',
+        element: <BookedPage />
       },
     ]
   },

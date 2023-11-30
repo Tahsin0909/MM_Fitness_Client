@@ -4,12 +4,14 @@
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../../../SDK";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 
 
 const AuthContext = createContext()
 const ContextApi = ({ children }) => {
+    const axiosPublic = useAxiosPublic()
     // emailAndPassword Authentication
     const [AuthUser, setAuthUser] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -53,17 +55,28 @@ const ContextApi = ({ children }) => {
         const Unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setAuthUser(user)
-                setLoading(false)
                 const UserInfo = {
                     email: user?.email
                 }
+                // get token and store client
+                axiosPublic.post('/jwt', UserInfo)
+                    .then(res => {
+                        if (res.data.token) {
+                            localStorage.setItem('access-token', res.data.token);
+                        }
+                    })
 
-            } else {
+                setLoading(false)
+            }
+            else {
+
+                localStorage.removeItem('access-token');
                 setLoading(false)
             }
         });
+
         return () => Unsubscribe()
-    }, [])
+    }, [axiosPublic])
 
 
     const contextInfo = {

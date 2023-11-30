@@ -94,14 +94,14 @@ const TrainerDetail = () => {
                         </div>
                         <div className="flex flex-wrap justify-center md:gap-8 gap-2 p-8">
                             {
-                                data?.timeSlots?.map((data, idx) => <div key={idx} className=" ">
+                                data?.timeSlots?.map((time, idx) => <div key={idx} className=" ">
                                     <div className="border md:w-40">
-                                        <p className="text-center py-4 px-8 font-semibold text-lg bg-gray-400 text-white rounded-sm">{data?.slot}</p>
+                                        <p className="text-center py-4 px-8 font-semibold text-lg bg-gray-400 text-white rounded-sm">{time?.slot}</p>
                                         <hr />
-                                        <p className="p-2 bg-white text-center">{data?.time}</p>
+                                        <p className="p-2 bg-white text-center">{time?.time}</p>
                                         <div className="flex justify-center py-2">
                                             {
-                                                data?.available ? <Link> <Button text={"Book Now"} /> </Link> : <button disabled className="border py-2 px-4 rounded-md bg-slate-400">Booked</button>
+                                                time?.available ? <Link to={`/booked?email=${data?.email}`} > <Button text={"Book Now"} /> </Link> : <button disabled className="border py-2 px-4 rounded-md bg-slate-400">Booked</button>
                                             }
                                         </div>
                                     </div>

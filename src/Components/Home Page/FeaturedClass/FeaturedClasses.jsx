@@ -10,7 +10,7 @@ const FeaturedClasses = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-6 my-6">
                 {
                     data?.slice(0, 6).map(classData => <div key={classData._id}>
-                        <div className="border lg:w-[500px] md:w-[350px] w-[300px] lg:h-fit h-[420px] rounded-t-md shadow-xl m-2 hover:scale-105 duration-500">
+                        <div className="border lg:w-[450px] md:w-[350px] w-[300px] lg:h-fit h-[420px] rounded-t-md shadow-xl m-2 hover:scale-105 duration-500">
                             <div className="p-3 bg-slate-50">
                                 <div className="flex flex-col md:flex-row md:items-center md:gap-4  font-semibold">
                                     <p className="lg:text-lg  text-base">{classData.classTitle}</p>

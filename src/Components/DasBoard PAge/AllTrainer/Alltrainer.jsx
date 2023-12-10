@@ -1,12 +1,45 @@
 import { Helmet } from "react-helmet";
 import useTrainer from "../../../Hooks/useTrainer";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const AllTrainer = () => {
-    const [data, isPending] = useTrainer()
+    const [data, isPending, refetch] = useTrainer()
     console.log(data);
-
+    const axiosPublic = useAxiosPublic()
     const currentDate = new Date()
     const month = currentDate.getUTCMonth()
+    const handlePay = (amount ,email) =>{
+        const  payData ={
+            trainer: email,
+            amount: amount,
+            payMonth: month
+        }
+        console.log(payData)
+        axiosPublic.post('/cashOut', payData)
+        .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                Swal.fire({
+                    title: "Successful",
+                    text: "Trainer Payment Success",
+                    icon: "success",
+                    confirmButtonColor: "#c91b1b",
+                    confirmButtonText: 'DONE'
+                });
+                refetch()
+            }
+            else {
+                Swal.fire({
+                    title: "oh!",
+                    text: "Some Error Occurred",
+                    icon: "error",
+                    confirmButtonColor: "#c91b1b",
+                    confirmButtonText: 'DONE'
+                });
+            }
+        })
+    }
 
     return (
         <div className="ml-10 m-2">
@@ -329,7 +362,7 @@ const AllTrainer = () => {
                                         </td>
                                         <td>
                                             {trainer.lastPayment != month &&
-                                                <button className="btn Shared_Color hover:text-red-800">
+                                                <button onClick={() => handlePay(trainer.salary, trainer.email)} className="btn Shared_Color hover:text-red-800">
                                                     Pay
                                                 </button>
                                             }

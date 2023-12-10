@@ -1,9 +1,53 @@
 import { Helmet } from "react-helmet";
 import Cover from "../Shared/Cover/Cover";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Button from "../Shared/Button/Button";
+import { useContext } from "react";
+import { AuthContext } from "../ContextApi/ContextApi";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const BookedPage = () => {
+    const axiosPublic = useAxiosPublic()
+    const {AuthUser} = useContext(AuthContext)
+    const location = useLocation()
+    const URL = new URLSearchParams(location.search)
+    const email = URL.get('email')
+    const slots = URL.get('slots')
+    const time = URL.get('time')
+
+    const HandleBook = (money) =>{
+       const  payData ={
+            trainer: email,
+            trainerSlots: slots,
+            userEmail: AuthUser?.email,
+            time: time,
+            amount: money
+        }
+        console.log(payData)
+        axiosPublic.post('/cashIn', payData)
+        .then(res => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                Swal.fire({
+                    title: "Successful",
+                    text: "Your Trainer Booked",
+                    icon: "success",
+                    confirmButtonColor: "#c91b1b",
+                    confirmButtonText: 'DONE'
+                });
+            }
+            else {
+                Swal.fire({
+                    title: "oh!",
+                    text: "Some Error Occurred",
+                    icon: "error",
+                    confirmButtonColor: "#c91b1b",
+                    confirmButtonText: 'DONE'
+                });
+            }
+        })
+    }
     return (
         <div>
             <Cover title={"Booking Trainer"} />
@@ -57,7 +101,7 @@ const BookedPage = () => {
                             </ul>
                         </div>
                         <div className="p-0 mt-12 text-center">
-                            <Link> <Button text={'Book Now'} /> </Link>
+                            <Link onClick={() => HandleBook(99)} > <Button text={'Book Now'} /> </Link>
                         </div>
                     </div>
                     {/* pacakege 2 */}
@@ -115,7 +159,7 @@ const BookedPage = () => {
                         </div>
                         <div className="p-0 mt-12">
                             <div className="p-0 mt-12 text-center">
-                                <Link> <Button text={'Book Now'} /> </Link>
+                                <Link onClick={() => HandleBook(299)} > <Button text={'Book Now'} /> </Link>
                             </div>
                         </div>
                     </div>
@@ -183,7 +227,7 @@ const BookedPage = () => {
                         </div>
                         <div className="p-0 mt-12">
                             <div className="p-0 mt-12 text-center">
-                                <Link> <Button text={'Book Now'} /> </Link>
+                                <Link onClick={() => HandleBook(499)} > <Button text={'Book Now'} /> </Link>
                             </div>
                         </div>
                     </div>

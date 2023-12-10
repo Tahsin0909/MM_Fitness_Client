@@ -4,13 +4,9 @@ import Button from "../Button/Button";
 import { useContext } from "react";
 import { AuthContext } from "../../ContextApi/ContextApi";
 import toast, { Toaster } from "react-hot-toast";
-import useAdmin from "../../../Hooks/useAdmin";
 
 const NavBar = () => {
     const { AuthUser, LogOut } = useContext(AuthContext)
-    // console.log(AuthUser);
-    const [isAdmin] = useAdmin()
-    console.log(isAdmin);
     return (
         <div className="relative w-full z-50 bg-transparent lg:px-6 ">
             <div className="navbar ">
@@ -40,7 +36,7 @@ const NavBar = () => {
                             <Link onClick={() => { LogOut(), toast.success('Log Out Successful') }}>
                                 <Button text={"Log Out"}></Button>
                             </Link>
-                            <img className="md:w-12 w-10 rounded-full" src={AuthUser?.photoURL} alt="" />
+                            <img className="md:w-12 w-10 h-14 rounded-full" src={AuthUser?.photoURL} alt="" />
                         </div>
                             :
                             <Link to={'/logIn'}> <Button text={"Log In"}></Button> </Link>

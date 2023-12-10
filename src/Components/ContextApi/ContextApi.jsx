@@ -23,7 +23,7 @@ const ContextApi = ({ children }) => {
     }
     //Update User
     const UpdateUser = (name, photo_Url) => {
-        setLoading(true)
+        // setLoading(true)
         return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo_Url
         })
@@ -53,8 +53,8 @@ const ContextApi = ({ children }) => {
 
     useEffect(() => {
         const Unsubscribe = onAuthStateChanged(auth, (user) => {
+            setAuthUser(user)
             if (user) {
-                setAuthUser(user)
                 const UserInfo = {
                     email: user?.email
                 }
@@ -76,7 +76,7 @@ const ContextApi = ({ children }) => {
         });
 
         return () => Unsubscribe()
-    }, [axiosPublic])
+    }, [])
 
 
     const contextInfo = {

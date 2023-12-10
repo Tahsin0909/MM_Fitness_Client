@@ -1,10 +1,26 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import './ErrorPAge.css'
 import Button from '../Shared/Button/Button';
 import { Helmet } from 'react-helmet';
 
-const ErrorPage = ({ errorMessage }) => {
+const ErrorPage = () => {
+    // const [errorMessage, setErrorMessage] = useState('')
+    // const error = useRouteError();
+
+    // if (isRouteErrorResponse(error)) {
+    //   if (error.status === 404) {
+    //     setErrorMessage("This page doesn't exist")
+    //   }
+  
+    //   if (error.status === 401) {
+    //     setErrorMessage("You aren't authorized to see this")
+    //   }
+  
+    //   if (error.status === 503) {
+    //     setErrorMessage("Looks like our API is down")
+    //   }
+    // }
     return (
         <div>
             <Helmet>
@@ -26,7 +42,7 @@ const ErrorPage = ({ errorMessage }) => {
                                         Look like you are lost
                                     </h3>
 
-                                    <p>{errorMessage}</p>
+                                    <p></p>
 
                                     <Link to={'/'}>
                                         <Button text={"Go to Home"} />

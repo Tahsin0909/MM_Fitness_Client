@@ -81,7 +81,7 @@ const AddForums = () => {
                                     <label className="label">
                                         <span className="label-text">Title</span>
                                     </label>
-                                    <input {...register("title")} type="text" placeholder="Title" className="input input-bordered h-[7vh]" required />
+                                    <input {...register("title")} type="text" placeholder="Title" className="input input-bordered  h-[7vh]" required />
                                 </div>
                                 <div className="">
                                     <label className="label">

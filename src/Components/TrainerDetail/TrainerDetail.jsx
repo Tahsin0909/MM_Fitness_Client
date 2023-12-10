@@ -101,7 +101,7 @@ const TrainerDetail = () => {
                                         <p className="p-2 bg-white text-center">{time?.time}</p>
                                         <div className="flex justify-center py-2">
                                             {
-                                                time?.available ? <Link to={`/booked?email=${data?.email}`} > <Button text={"Book Now"} /> </Link> : <button disabled className="border py-2 px-4 rounded-md bg-slate-400">Booked</button>
+                                                time?.available ? <Link to={`/booked?email=${data?.email}&slots=${time.slot}&time=${time.time}`} > <Button text={"Book Now"} /> </Link> : <button disabled className="border py-2 px-4 rounded-md bg-slate-400">Booked</button>
                                             }
                                         </div>
                                     </div>

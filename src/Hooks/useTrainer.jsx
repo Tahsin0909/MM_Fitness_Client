@@ -3,14 +3,14 @@ import useAxiosPublic from "./useAxiosPublic";
 
 const useTrainer = () => {
     const axiosPublic = useAxiosPublic()
-    const { isPending, data } = useQuery({
+    const { isPending, data, refetch } = useQuery({
         queryKey: ['trainerData'],
         queryFn: async () => {
             const res = await axiosPublic.get('/trainer');
             return res.data;
         }
     })
-    return [data, isPending]
+    return [data, isPending, refetch]
 };
 
 export default useTrainer;

@@ -22,12 +22,18 @@ import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import AllSubscriber from "../Components/DasBoard PAge/AllSubscribers/AllSubscriber";
 import ManageMember from "../Components/DasBoard PAge/ManageMEmber/ManageMember";
 import BookedPage from "../Components/BookedPAge/BookedPage";
+import PrivateRoutes from "./PrivetRoutes";
+import MyActivity from "../Components/MyActivity/Myactivity";
+import ResomendedClass from "../Components/DasBoard PAge/RecommendedClasses/ResomendedClass";
+import Settings from "../Components/DasBoard PAge/Settings/Settings";
+import ManageSlots from "../Components/DasBoard PAge/ManageSlots/ManageSlots";
+import Balance from "../Components/DasBoard PAge/Balance/Balance";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <ErrorPage/>,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: '/',
@@ -63,18 +69,18 @@ export const router = createBrowserRouter([
       },
       {
         path: '/booked',
-        element: <BookedPage />
+        element: <PrivateRoutes><BookedPage /></PrivateRoutes>
       },
     ]
   },
   {
     path: 'dashboard',
-    element: <DashBoardHome />,
+    element: <PrivateRoutes><DashBoardHome />,</PrivateRoutes>,
     errorElement: <ErrorPage/>,
     children: [
       {
         path:'beTrainer',
-        element:<BeATrainer/>
+        element: <PrivateRoutes><BeATrainer/></PrivateRoutes>
       },
       {
         path:'appliedTrainer',
@@ -103,6 +109,26 @@ export const router = createBrowserRouter([
       {
         path:'member',
         element:<ManageMember/>
+      },
+      {
+        path:'myActivity',
+        element:<MyActivity/>
+      },
+      {
+        path:'classes',
+        element:<ResomendedClass/>
+      },
+      {
+        path:'settings',
+        element:<Settings/>
+      },
+      {
+        path:'slots',
+        element:<ManageSlots/>
+      },
+      {
+        path:'balance',
+        element:<Balance/>
       },
     ]
   },

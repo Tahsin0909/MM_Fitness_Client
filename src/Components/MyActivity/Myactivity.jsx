@@ -23,7 +23,7 @@ const MyActivity = () => {
     }, [AuthUser])
     // handle bmi
     const [bmi, setBMI] = useState(null);
-    const [tips, setTips] = useState('Please Provide Us Your Weight in KG and Height In Meter So TAHt We can Guide You');
+    const [tips, setTips] = useState('Please Provide Us Your Weight in KG and Height In Meter So That We can Guide You');
     const [BmiColor, setBmiColor] = useState('');
     const onSubmit = data => {
         const weight = data.weight

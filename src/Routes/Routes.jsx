@@ -28,6 +28,7 @@ import ResomendedClass from "../Components/DasBoard PAge/RecommendedClasses/Reso
 import Settings from "../Components/DasBoard PAge/Settings/Settings";
 import ManageSlots from "../Components/DasBoard PAge/ManageSlots/ManageSlots";
 import Balance from "../Components/DasBoard PAge/Balance/Balance";
+import FindOutlet from "../Components/Home Page/FindOutlet/FindOutlet";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: '/booked',
         element: <PrivateRoutes><BookedPage /></PrivateRoutes>
+      },
+      {
+        path: '/outlet',
+        element: <FindOutlet/>
       },
     ]
   },

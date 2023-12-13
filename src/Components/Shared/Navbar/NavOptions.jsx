@@ -45,6 +45,13 @@ const NavOptions = () => {
             >
                 Forums
             </NavLink>
+            <NavLink
+                to={`/outlet`}
+                className={({ isActive, isPending }) =>
+                    isActive ? "active  py-2 px-4 Shared_Color text-white rounded-lg " : isPending ? "pending" : "hover:scale-[1.1] duration-300 py-2 px-4  lg:text-white" }
+            >
+                Outlet
+            </NavLink>
         </div>
     )
 };
